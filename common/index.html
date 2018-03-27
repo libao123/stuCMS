@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>welcome</title>
+  	<!-- Tell the browser to be responsive to screen width -->
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+		  <link rel="stylesheet" href="css/AdminLTE.min.css">
+	  	<link rel="stylesheet" href="css/skins/_all-skins.min.css">
+      <link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css" />
+      <link rel="stylesheet" href="../common/plugins/datatables/dataTables.responsive.css" />
+      <link rel="stylesheet" href="../common/plugins/iCheck/all.css" />
+      <link rel="stylesheet" href="../common/css/common.css" />
+		  <!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  	</style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>后台首页<!--<small>Version 2.0</small>--></h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      	<!-- Info boxes -->
+      	<div class="row">
+	      	<div class="col-xs-12">
+	      		<div class="box box-primary">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">快速指引</h3>
+              			<div class="box-tools pull-right">
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body" id="quickEnter">
+					</div>
+	      		</div>
+      		</div>
+        </div>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="box box-danger">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">工作通知</h3>
+              			<div class="box-tools pull-right">
+                      		<a href="#" class="btn btn-box-tool">更多</a>
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body no-padding" id="wordNotice">
+					</div>
+	      		</div>
+          </div>
+          <div class="col-md-5">
+            <div class="box box-info">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">近期公告</h3>
+              			<div class="box-tools pull-right">
+                      		<a href="#" class="btn btn-box-tool">更多</a>
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body no-padding" id="nearNotice">
+					</div>
+	      		</div>
+          </div>
+      	</div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="box box-success">
+	      			<div class="box-header with-border">
+		              	<h3 class="box-title">政策解读</h3>
+		              	<div class="box-tools pull-right">
+		                  <a href="javascript:void(0);" data-href="http://www.baidu.com" data-title="政策解读" class="btn btn-box-tool">更多</a>
+		                	<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		              	</div>
+	            	</div>
+            		<div class="box-body no-padding" id="policyNotice">
+					</div>
+	      		</div>
+          </div>
+          <div class="col-md-7">
+            <div class="box box-warning">
+	      			<div class="box-header with-border">
+		              	<h3 class="box-title">资助动态</h3>
+		              	<div class="box-tools pull-right">
+		                  <a href="#" class="btn btn-box-tool">更多</a>
+		                	<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+		              	</div>
+            		</div>
+            		<div class="box-body no-padding" id="fundingTrends">
+					</div>
+	      		</div>
+          </div>
+        </div>
+        <div class="row" id="content">
+          <div class="col-md-12">
+            <div class="box box-danger">
+              <table id="tablelist" class="table table-bordered table-striped table-hover">
+    				  </table>
+	      		</div>
+          </div>
+        </div>
+        <div class="row" id="content1">
+          <div class="col-md-12">
+            <div class="box">
+              <table id="tablelist1" class="table table-bordered table-striped table-hover">
+    				  </table>
+	      		</div>
+          </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- <footer class="main-footer">
+  <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0.0
+  </div>
+  <strong>Copyright &copy; 2014-2016 <a href="#">广西师范大学</a>.</strong> 所有全部版权.
+</footer> -->
+  <!--<div class="footer main-footer">
+		<div class="footer-wrap">
+			<div class="footer-wrap-top">
+				<div class="footer-wrap-top-left">
+					<dl>
+						<dt>新手帮助</dt>
+						<dd>
+							<a href=""> 如何购买</a>
+						</dd>
+						<dd>
+							<a href="">支付教程</a>
+						</dd>
+						<dd>
+						<a href="">优惠券使用</a>
+						</dd>
+						<dd>
+						<a href="">常见问题</a>
+						</dd>
+					</dl>
+					<dl class="bz">
+						<dt>权益保障</dt>
+						<dd>
+						<a href="">全国包邮</a>
+						</dd>
+						<dd>
+						<a href="">7天无理由退货</a>
+						</dd>
+						<dd>
+						<a href="">退货运费补贴</a>
+						</dd>
+						<dd>
+						<a href="">72小时发货</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt> 商家服务</dt>
+						<dd>
+						<a href="">免费开店</a>
+						</dd>
+						<dd>
+						<a href=""> 商家社区</a>
+						</dd>
+						<dd>
+						<a href="">商家入驻</a>
+						</dd>
+						<dd>
+						<a href="">管理后台</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="footer-wrap-top-right">
+					<h2>蘑菇街移动客户端</h2>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				©Copyright 2010-2016蘑菇街 Mogujie.com (增值电信业务经营许可证：浙B2-20110349)
+			</div>
+		</div>
+	</div>-->
+	<!--<footer class="main-footer">
+	    <div class="pull-right hidden-xs">
+	      	<b>Version</b> 1.1.1
+	    </div>
+    	<strong>&copy; Copyright 2017 广西师范大学学生工作部（处）</strong>
+    	技术支持：BanHuahu
+  	</footer>-->
+</div>
+<!-- ./wrapper -->
+
+	<!-- jQuery 2.2.3 -->
+	<script src="js/jquery/jquery-2.2.3.min.js"></script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="js/bootstrap/js/bootstrap.min.js"></script>
+  	<script src="../common/plugins/iCheck/icheck.min.js"></script>
+  	<script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+  	<script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  	<script src="../common/plugins/datatables/dataTables.responsive.js"></script>
+	<!-- AdminLTE App -->
+	<script type="text/javascript" src="../common/plugins/Hui/h-ui/js/H-ui.js"></script>
+		<script type="text/javascript" src="../common/plugins/Hui/h-ui.admin/js/H-ui.admin.js"></script>
+  	<script src="js/app.min.js"></script>
+	<script src="js/demoTabs.js"></script>
+ 	<script src="js/common.js"></script>
+ 	<script src="js/datatables.init.js"></script>
+  	<script src="js/modal.control.js"></script>
+  	<script type="text/javascript">
+    $(function(){
+      var quickData = [
+        {'url':'./newStds/newStdsManage.html', 'str':'新生录入', 'icon':'fa-coffee'},
+        {'url':'./user/person/infoBase.html', 'str':'个人信息', 'icon':''},
+      ];
+      quickEnter.init('#quickEnter', quickData);
+
+      var iNoticeData = {
+        modal:{
+          id:'wordModal',
+          title:"工作通知",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv/user/login', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.lamian.tv', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#wordNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'nearModal',
+          title:"近期公告",
+        },
+        attr:[
+          {'url':'http://www.lamian.tv/user/login', 'title':'又推出了新的政策'},
+          {'url':'http://www.aipai.com', 'title':'又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#nearNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'policyModal',
+          title:"政策解读",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv/user/login', 'title':'工作通知'},
+          {'url':'http://www.baidu.com', 'title':'啥啥啥，工作通知'},
+          {'url':'http://www.baidu.com', 'title':'工作通知新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#policyNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'wordModal',
+          title:"资助动态",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.163.com', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#fundingTrends', iNoticeData);
+		$(".box-header .box-tools").on("click", 'a.btn', function(){
+			if ($(this).attr("data-href") != undefined && $(this).attr("data-href") != "" && $(this).attr("data-href") != "#") {
+				Hui_admin_tab(this);
+			} else{
+				
+			}
+		});
+      /*E new*/
+
+        /* height? */
+        window.onload = function(){
+			adaptionHeight();
+      	}
+
+    });
+  </script>
+</body>
+</html>

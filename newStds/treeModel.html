@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>新生录入管理</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+			<link rel="stylesheet" href="../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+	  	<link rel="stylesheet" href="../common/plugins/datepicker/datepicker3.css" />
+  		<link rel="stylesheet" href="../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css" />
+			<link rel="stylesheet" href="../common/plugins/datatables/dataTables.responsive.css" />
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../common/plugins/iCheck/all.css" />
+  		
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="../common/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	
+	  	<!-- jQuery 2.2.3 -->
+		<script src="../common/js/jquery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<script src="../common/js/moment/moment.min.js"></script>
+		<!-- plugins -->
+		<script type="text/javascript" src="../common/plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="../common/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../common/plugins/iCheck/icheck.min.js"></script>
+		<script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.responsive.js"></script>
+		<!-- tree -->
+		<link rel="stylesheet" href="../common/plugins/treeview/bootstrap-treeview.min.css" />
+		<script src="../common/plugins/treeview/bootstrap-treeview.min.js" type="text/javascript"></script>
+		<script src="../common/js/common.js"></script>
+		<!--<script src="./js/stdManage.js"></script>-->
+		<script type="text/javascript">
+			var jsType = "commonTable";
+			//
+			function getTree() {
+  				// Some logic to retrieve, or generate tree structure
+  				data = tree;
+  				return data;
+			}
+			var tree = [
+			  {
+			    text: "Parent 1",
+			    nodes: [
+			      {
+			        text: "Child 1",
+			        nodes: [
+			          {
+			            text: "Grandchild 1"
+			          },
+			          {
+			            text: "Grandchild 2"
+			          }
+			        ]
+			      },
+			      {
+			        text: "Child 2"
+			      }
+			    ]
+			  },
+			  {
+			    text: "Parent 2",
+			  	//selectable: false,
+			  	state: {
+				    //checked: true,//checkbox状态
+				    //disabled: true,//禁选择状态
+				    //selected: true//selected状态
+			  	},
+			  	//tags: ['available'],
+			  	nodes: [
+				  	{
+				        text: "Child 3"
+				    },
+			  	]
+			  },
+			  {
+			    text: "Parent 3"
+			  },
+			  {
+			    text: "Parent 4"
+			  },
+			  {
+			    text: "Parent 5"
+			  }
+			];
+			$(document).ready(function(){
+				$('#tree').treeview({
+					data: getTree(),//data
+					levels: 1,//展开等级数
+					//multiSelect: true,//是否多选
+					onNodeSelected: function(event, data) {//选择事件
+						//something
+						var arr = $(this).treeview('getSelected');
+						console.log(arr);
+					},
+					onNodeUnselected: function(event, node){//取消选择事件
+						//something
+					},
+					
+				});
+				
+
+     		});
+		</script>
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  		@media only screen and (min-width: 100px) and (max-width: 480px) {
+	  			.box-header > .box-tools{
+	  				position: relative;
+	  				margin-left: 10px;
+	  			}
+					.hidden-480 {
+					    display: none!important;
+					}
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	新生录入管理<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">新生管理</a></li>
+				        <!--<li><a href="#">综合成绩管理</a></li>-->
+				        <li class="active">新生录入管理</li>
+			      	</ol>
+			    </section>
+
+			    <!-- Main content -->
+			    <section class="content" id="content">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				        	<div id="alertDiv"></div>
+				          	<!-- /.box -->
+				          	<div id="" class="col-md-6">
+				          		<div id="tree"></div>
+				          	</div>
+				          	
+							<!-- /.box -->
+				        </div>
+				    </div>
+			    </section>
+
+
+	  		</div>
+	  		<!-- E content -->
+		</div>
+		
+	</body>
+</html>

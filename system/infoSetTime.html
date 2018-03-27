@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>其他管理</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+		<link rel="stylesheet" href="../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css">
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../common/plugins/iCheck/all.css">
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	其他管理<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">系统维护</a></li>
+				        <li><a href="#">公共信息管理</a></li>
+				        <li class="active">其他管理</li>
+			      	</ol>
+			    </section>
+			    <!-- Main content -->
+			    <section class="content">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				          	<div class="box">
+				            	<div class="box-header">
+				              		<h3 class="box-title">其他管理</h3>
+				            	</div>
+				            	<!-- /.box-header -->
+					            <div class="box-body table-responsive no-padding">
+					            	<a class="btn btn-app" id="settingTime">
+                						<i class="fa fa-edit"></i> 学年设置
+              						</a>
+              						<!--  -->
+              						<!--<a class="btn btn-app" id="studentEnter">
+                						<i class="fa fa-child"></i> 学员信息导入
+              						</a>-->
+              						<!---->
+              						<!--<a class="btn btn-app" id="teacherEnter">
+                						<i class="fa fa-users"></i> 辅导员信息导入
+              						</a>-->
+					            </div>
+				            	<!-- /.box-body -->
+				          	</div>
+				          	<!-- /.box -->
+				        </div>
+				    </div>
+			    </section>
+	  		</div>
+	  		<!-- E content -->
+		</div>
+		
+        <!--  -->
+		<div class="modal" id="settingTimeModal">
+          	<div class="modal-dialog">
+	            <form action="#" method="post" name="form" class="modal-content">
+	              	<div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                  	<span aria-hidden="true">×</span></button>
+		                <h4 class="modal-title">学年学期设置</h4>
+	              	</div>
+	              	<div class="modal-body">
+	                	<!--<p>One fine body…</p>-->
+	                	<div class="form-group">
+			                <label>日期:</label>
+			
+			                <div class="input-group">
+				                <div class="input-group-addon">
+				                	<i class="fa fa-calendar"></i>
+				                </div>
+				                <input type="text" class="form-control pull-right" name="datetime" id="reservation">
+			                </div>
+		                <!-- /.input group -->
+		            	</div>
+	              	</div>
+		              	<div class="modal-footer">
+		                	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+		                	<button type="submit" class="btn btn-primary btn-save">保存</button>
+		              	</div>
+	            </form>
+	            <!-- /.modal-content -->
+          	</div>
+          	<!-- /.modal-dialog -->
+        </div>
+        <!--  -->
+        
+        <div class="modal modal-warning" id="delModal">
+          <div class="modal-dialog">
+          	<form action="#" method="post" name="form" class="modal-content  form-horizontal">
+            <!--<div class="modal-content">-->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">删除</h4>
+              </div>
+              <div class="modal-body">
+                <p>确定要删除该信息？</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-outline">确定</button>
+              </div>
+            </form>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        
+		<!-- jQuery 2.2.3 -->
+		<script src="../common/js/jquery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<script src="../common/js/moment/moment.min.js"></script>
+		<!-- plugins -->
+		<script src="../common/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../common/plugins/iCheck/icheck.min.js"></script>
+		<script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<script src="js/info.js"></script>
+	</body>
+</html>

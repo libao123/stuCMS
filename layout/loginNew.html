@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8,IE=edge" />
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="renderer" content="webkit" />
+		<link rel="stylesheet" href="./css/base.css" />
+		<link rel="stylesheet" href="./css/skeleton.css" />
+		<link rel="stylesheet" href="./css/layout.css" />
+		<link rel="stylesheet" href="./css/modal.css" />
+		<link rel="stylesheet" type="text/css" href="./css/Boxy_bootstrap-red.css" media="all" />
+		<link rel="stylesheet" href="./css/global.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/style(1).css" />
+		<link rel="stylesheet" type="text/css" href="./css/footer-red.css" media="all" />
+		
+		<!-- <link rel="stylesheet" href="https://ruc.tiup.cn/static//common/css/bootstrap-3.3.0.min.css"> --><!--[if lt IE 9]><script src="https://ruc.tiup.cn/static//layout/offline/js/html5.js"></script><![endif]-->
+		<link rel="shortcut icon" href="https://v.ruc.edu.cn/data/app/0/7/10001_703_logo.png" />
+		<script src="./js/jquery.min.js.下载"></script>
+		<script src="./js/jquery.boxy.js.下载"></script>
+	</head>
+	<body>
+		
+		<div class="wrapper"><div class="top mobile-hidden"><div class="container"><div class="top-container"><div class="three columns pr20"><a href="https://v.ruc.edu.cn/" target="_blank" class="three columns"><img src="./登录 - 中国人民大学_files/10001_252302_logo.png" alt="中国人民大学" class="scale-with-grid"></a></div><div class="thirteen columns pl20"><div class="seven columns"></div><div class="four columns pr20 mobile-hidden" style="height: 32px; line-height: 32px; color: #666;"><span style="float: right;">新职工？新生？或路过的朋友？</span></div><div class="two columns"><a href="https://v.ruc.edu.cn/reg" target="_blank"><button class="btn two columns alpha omega btn-default">激活账户</button></a></div></div></div></div><!-- container --></div><div class="middle"><div class="container" style="min-height:390px;"><div class="eleven columns bannershow mobile-hidden"><img src="./登录 - 中国人民大学_files/8_months.jpg" width="100%" alt="image"></div><div class="eleven columns bannerhide mobile-hidden" style="display: none;"><h3>微人大</h3><p>全面的校内一体化应用平台。每天第一件事，打开“微人大”</p><div class="row row-margin10 mt30"><div class="left-icon-2"><span class="icon-idcard"></span></div><div class="itemdesc-2"><h5>统一身份，复合帐号</h5><p>您可以使用学工号、手机号或者Email地址登录，都对应到一个账户，在跨校访问时，无需更换</p></div></div><div class="row row-margin10"><div class="left-icon-2"><span class="icon-cloud"></span></div><div class="itemdesc-2"><h5>丰富应用、跨校资源</h5><p>整合全部校内应用，选课、查询通知、下载、观看在线视频，一次登录即可获得，更具有丰富的圈子及社交功能</p></div></div><div class="row row-margin-10"><div class="left-icon-2"><span class="icon-mobile"></span></div><div class="itemdesc-2"><h5>手机客户端</h5><p>支持iOS、Android系统，在手机或者平板电脑上使用更加方便，随时随地了解校内动态</p></div></div><!-- <div class="funclist"><a href="">关于TiUP</a><a href="">新增功能！</a><a href="http://tiup.cn/platformregister">创建账户</a></div> --></div><div class="five columns"><div class="box-border box-gray five columns alpha radius-l"><iframe id="login-iframe" src="./登录 - 中国人民大学_files/login.html" allowtransparency="true" frameborder="0" scrolling="no" width="100%" height="265px"></iframe></div></div></div><div class="container bannershow mobile-hidden" style="margin-top:30px;"><div class="four columns"><h3>微人大</h3><p>全面的校内一体化应用平台。每天第一件事，打开“微人大”</p><!-- <div class="funclist"><a href="">关于TiUP</a><a href="">新增功能！</a><a href="http://tiup.cn/platformregister">创建账户</a></div> --></div><div class="four columns"><div class="left-icon"><span class="icon-idcard"></span></div><div class="itemdesc"><h5>统一身份、复合帐号</h5><p>您可以使用学工号、手机号或者Email地址登录，都对应到一个账户，在跨校访问时，无需更换</p></div></div><div class="four columns"><div class="left-icon"><span class="icon-cloud"></span></div><div class="itemdesc"><h5>丰富应用、跨校资源</h5><p>整合全部校内应用，选课、查询通知、下载、观看在线视频，一次登录即可获得，更具有丰富的圈子及社交功能</p></div></div><div class="four columns"><div class="left-icon"><span class="icon-mobile"></span></div><div class="itemdesc"><h5>手机客户端</h5><p>支持iOS、Android系统，在手机或者平板电脑上使用更加方便，随时随地了解校内动态</p></div></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    if ('235' == '235' || '235' == '233') { //如果是人大
+        $(".bannershow").show();
+        $(".bannerhide").hide();
+    } else {
+        $(".bannershow").hide();
+        $(".bannerhide").show();
+    }
+
+    var date = new Date;
+    if ('235' == '235'){
+        $(".bannershow img").attr('src', 'https://ruc.tiup.cn/static/login/img/' + (date.getMonth() + 1) + '_months.jpg');
+    }
+    // 8.10~8.15 9:00显示提示预注册图片
+    if ('235' == '233'){
+        if(date.getFullYear() == '2017' && date.getMonth() == 7 && ((date.getDate() >= 10 && date.getDate() < 15) || (date.getDate() == 15 && date.getHours() <= 9))){
+            $(".bannershow img").attr('src', 'https://ruc.tiup.cn/static/login/img/banner_new_bfsu.png');
+        }else {
+            $(".bannershow img").attr('src', 'https://ruc.tiup.cn/static/login/img/banner2_bfsu.jpg');
+        }
+    }
+
+    // $.fn.loginTiUP({
+    //   schoolCode: '',
+    //   csrfToken: '',
+    //   redirectUri: 'https://v.ruc.edu.cn/oauth2/authorize?client_id=accounts.tiup.cn&amp;redirect_uri=http%3A%2F%2Fv.ruc.edu.cn%2Fsso%2Fcallback%3Fschool_code%3Druc%26theme%3Dschools%26redirect_uri%3D%2Fme&amp;response_type=code&amp;school_code=ruc&amp;scope=all&amp;state=0CkHQ8CzCiYFdRzh&amp;theme=schools' + window.location.hash,
+    //   loginButton: '.login-btn',
+    //   errorDescription: '.error'
+    // });
+  
+});
+</script></div><!-- <div class="bottom"><div class="container"><div class="sixteen columns footer"><div class="ten columns alpha"><span class="c2 columns alpha">© 2017 TiUP</span><ul class="offset-by-one columns omega footerlist"><li><a href="#" class="black mobile-hidden">
+                                办公
+                            </a></li><li><a href="#" class="black mobile-hidden">
+                                教学
+                            </a></li><li><a href="#" class="black mobile-hidden">
+                                科研
+                            </a></li><li><a href="#" class="black mobile-hidden">
+                                生活
+                            </a></li><li><a href="#" class="black">
+                                隐私政策
+                            </a></li><li><a href="#" class="black">
+                                使用条款
+                            </a></li></ul></div><div class="align-right mobile-hidden"><select name="language" id="langSelect"><option value="0">切换语言</option><option value="chn">中文（简体）</option><option value="eng">English</option></select></div></div></div></div> --><div class="container y_container" id="Privacy" style="display:none;"><div class="y-card article-container" style="width: 500px;height:140px;"><div class="a-section"><div class="a-header">您好，欢迎选择本平台的服务！</div><div class="a-content">在您使用本平台服务之前，请仔细阅读网页底部的<a href="http://tiup.cn/Privacy" target="_blank" style="color:#428bca;">《隐私政策》</a>和<a href="http://tiup.cn/Terms" target="_blank" style="color:#428bca;">《服务条款》</a>。您需要对条款所述进行详细了解，明确条款中的内容和含义并知晓条款的要求及各项定义。除非您同意并接受本条款所述，否则您无权使用本平台提供的任何服务。当您使用本平台的服务时即视为您已经明确条款内容并表示接受。
+                </div></div></div></div><script src="./登录 - 中国人民大学_files/footer.js.下载"></script><div class="footer mobile-style logout" data-layout="struct"><div class="container"><div class="row"><div class="col-xs-12 col-sm-8 footer-link-container clearfix"><!-- 定义SCHOOL_CODE 的情况 --><div><a target="_blank" href="http://ruc.tiup.cn/account/help">获取帮助</a></div><div><a target="_blank" href="http://ruc.tiup.cn/Privacy">隐私政策</a></div><div><a target="_blank" href="http://ruc.tiup.cn/Terms">服务条款</a></div><div><a target="_blank" href="http://www.tiup.cn/">关于TiUP</a></div></div><div class="col-xs-12 col-sm-4 copyright-container"><span>© 2013-2017</span><img src="./登录 - 中国人民大学_files/footericon.png" alt="TiUP"><span>tiup.cn&nbsp;版权所有</span></div></div></div></div><script src="./登录 - 中国人民大学_files/footer.js.下载"></script>
+		
+	</body>
+</html>

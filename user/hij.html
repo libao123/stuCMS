@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hij</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+			<link rel="stylesheet" href="../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css">
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../common/plugins/iCheck/all.css">
+      <link rel="stylesheet" href="../common/css/common.css" type="text/css" />
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+      <!-- jQuery 2.2.3 -->
+      <script src="../common/js/jquery/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="../common/js/app.min.js"></script>
+      <!-- date-range-picker -->
+      <script src="../common/js/moment/moment.min.js"></script>
+      <!-- plugins -->
+      <script src="../common/plugins/daterangepicker/daterangepicker.js"></script>
+
+      <!-- DataTables -->
+      <!-- iCheck 1.0.1 -->
+      <script src="../common/plugins/iCheck/icheck.min.js"></script>
+      <script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+      <script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  	</style>
+  </head>
+  <body>
+    <!-- main -->
+    <div class="container" id="vueTest">
+      <my-component wtf="what the fuck?!"></my-component>
+    </div>
+
+    <script src="../common/js/vue.min.js"></script>
+    <!--<script src="js/log.js"></script>-->
+    <script type="text/javascript">
+    var vue = new Vue({
+      el: '#vueTest',
+      data: {
+        items: []
+      },
+      methods: {
+        onload: function(){
+          // console.log("hello world");
+
+        },
+
+      },
+      components: {
+        'my-component': {
+          // 声明 props
+          props: ['wtf'],
+          // 就像 data 一样，prop 也可以在模板中使用
+          // 同样也可以在 vm 实例中通过 this.message 来使用
+          template: `<div v-bind:id="id">这是一个局部的自定义组件，只能在当前Vue实例中使用{{msg}}
+          <div class="text-danger">{{wtf}}</div>
+          </div>`,
+          data: function(){
+            return {
+              id: 0,
+              msg: "sals"
+            }
+          }
+
+        }
+      }
+    });
+    $(function(){
+      vue.onload();
+    });
+    </script>
+  </body>
+</html>

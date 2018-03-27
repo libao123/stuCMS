@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>日志管理</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+		<link rel="stylesheet" href="../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css">
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../common/plugins/iCheck/all.css">
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<!-- S header -->
+			<header class="main-header">
+			    <!-- Logo -->
+			    <a href="#" class="logo">
+			      	<!-- mini logo for sidebar mini 50x50 pixels -->
+			      	<span class="logo-mini"><b>A</b>LT</span>
+			      	<!-- logo for regular state and mobile devices -->
+			      	<span class="logo-lg"><b>Admin</b>LTE</span>
+			    </a>
+			    <!-- Header Navbar: style can be found in header.less -->
+			    <nav class="navbar navbar-static-top">
+			      	<!-- Sidebar toggle button-->
+			      	<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+			        	<span class="sr-only">Toggle</span>
+			      	</a>
+			
+			      	<div class="navbar-custom-menu">
+			        	<ul class="nav navbar-nav">
+			          	<!-- Messages: style can be found in dropdown.less-->
+				          	<li class="dropdown messages-menu">
+			            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			              			<i class="fa fa-envelope-o"></i>
+			              			<span class="label label-success">1</span>
+			            		</a>
+			            		<ul class="dropdown-menu">
+			              		<li class="header">有1条信息</li>
+			              		<li>
+			                		<!-- inner menu: contains the actual data -->
+			                		<ul class="menu">
+			                  			<li><!-- start message -->
+			                    			<a href="#">
+			                      				<div class="pull-left">
+			                        				<img src="../common/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+			                      				</div>
+			                      				<h4>大标题<small><i class="fa fa-clock-o"></i>time？</small></h4>
+			                      				<p>这里是信息的标题。应该不会很长。。试试会不会很长。</p>
+			                    			</a>
+			                  			</li>
+			                  			<!-- end message -->
+			                		</ul>
+				              	</li>		
+			              		<li class="footer"><a href="#">全部信息</a></li>
+			            		</ul>
+			          		</li>
+			          		<!-- Notifications: style can be found in dropdown.less -->
+			          		<li class="dropdown notifications-menu">
+			            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			              			<i class="fa fa-bell-o"></i><span class="label label-warning">1</span>
+			            		</a>
+			            		<ul class="dropdown-menu">
+			              		<li class="header">有1条提示</li>
+			              		<li>
+			                	<!-- inner menu: contains the actual data -->
+			                		<ul class="menu">
+			                  		<li>
+			                    		<a href="#">
+			                      			<i class="fa fa-users text-aqua"></i>今天是第一天
+			                    		</a>
+			                  		</li>
+			                  		<li>
+			                    		<a href="#">
+			                      			<i class="fa fa-warning text-yellow"></i>这是一段很长的警告。。警告。。警告。。。。。
+			                    		</a>
+			                  		</li>
+				                  	<li>
+				                    	<a href="#">
+				                      		<i class="fa fa-user text-red"></i>注意。图标是不一样的。或许是？？？
+				                    	</a>
+				                  	</li>
+			                		</ul>
+			              		</li>
+			              		<li class="footer"><a href="#">全部提示信息</a></li>
+			            		</ul>
+			          		</li>
+			          		<!-- User Account: style can be found in dropdown.less -->
+			          		<li class="dropdown user user-menu">
+					            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					              	<img src="../common/images/user2-160x160.jpg" class="user-image" alt="User Image">
+					              	<span class="hidden-xs">Admin</span>
+					            </a>
+				            	<ul class="dropdown-menu">
+			              		<!-- User image -->
+			              			<li class="user-header">
+			                			<img src="../common/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+						                <p>
+						                  	Admin - 管理员
+						                  	<small>今天</small>
+						                </p>
+			              			</li>
+			              			<!-- Menu Body -->
+			              			<li class="user-body">
+			                			<div class="row">
+			                  				<div class="col-xs-4 text-center">
+			                    				<a href="#">功能链接1</a>
+			                  				</div>
+						                  	<div class="col-xs-4 text-center">
+						                    	<a href="#">功能链接2</a>
+						                  	</div>
+						                  	<div class="col-xs-4 text-center">
+						                    	<a href="#">功能链接3</a>
+						                  	</div>
+			                			</div>
+			                			<!-- /.row -->
+			              			</li>
+			              			<!-- Menu Footer-->
+			              			<li class="user-footer">
+			                			<div class="pull-left">
+			                  				<a href="#" class="btn btn-default btn-flat">用户中心</a>
+			                			</div>
+			                			<div class="pull-right">
+			                  				<a href="#" class="btn btn-default btn-flat">登出</a>
+			                			</div>
+			              			</li>
+			            		</ul>
+			          		</li>
+					        <!-- Control Sidebar Toggle Button -->
+					        <!--<li>
+					        	<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+					        </li>-->
+			        	</ul>
+			      	</div>
+			    </nav>
+			</header>
+			<!-- E header -->
+			<!-- S Left -->
+			<aside class="main-sidebar">
+			    <!-- sidebar: style can be found in sidebar.less -->
+			    <section class="sidebar">
+			      	<!-- Sidebar user panel -->
+			      	<div class="user-panel">
+				        <div class="pull-left image">
+				          	<img src="../common/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+				        </div>
+				        <div class="pull-left info">
+				          	<p>Admin</p>
+				          	<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+				        </div>
+			      	</div>
+			      	<!-- search form -->
+			      	<form action="#" method="get" class="sidebar-form">
+			        	<div class="input-group">
+			          	<input type="text" name="q" class="form-control" placeholder="查找...">
+			              	<span class="input-group-btn">
+			                	<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+			              	</span>
+			        	</div>
+			      	</form>
+			      	<!-- /.search form -->
+			      	<!-- sidebar menu: : style can be found in sidebar.less -->
+			      	<ul class="sidebar-menu">
+			        	<li class="header">导航</li>
+			        	<li class="treeview">
+			          		<a href="#">
+			            		<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+			            		<span class="pull-right-container">
+			              			<i class="fa fa-angle-left pull-right"></i>
+			            		</span>
+			          		</a>
+			          		<ul class="treeview-menu">
+			            		<li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+			            		<li class="active"><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+			          		</ul>
+			        	</li>
+				        <li class="treeview">
+				          	<a href="#">
+				            	<i class="fa fa-laptop"></i>
+				            	<span>用户中心</span>
+					            <span class="pull-right-container">
+					              	<i class="fa fa-angle-left pull-right"></i>
+					            </span>
+				          	</a>
+				          	<ul class="treeview-menu">
+					            <li><a href="#"><i class="fa fa-circle-o"></i> 个人信息</a></li>
+					            <li><a href="#"><i class="fa fa-circle-o"></i> 事项处理</a></li>
+					            <li><a href="#"><i class="fa fa-circle-o"></i> 头像管理</a></li>
+					            <li><a href="#"><i class="fa fa-circle-o"></i> 信息维护</a></li>
+					            <li><a href="#"><i class="fa fa-circle-o"></i> 统计查询</a></li>
+				          	</ul>
+				        </li>
+				        <li class="treeview active">
+				          	<a href="#">
+				            	<i class="fa fa-laptop"></i>
+				            	<span>系统维护</span>
+					            <span class="pull-right-container">
+					              	<i class="fa fa-angle-left pull-right"></i>
+					            </span>
+				          	</a>
+				          	<ul class="treeview-menu">
+					            <li><a href="publicInfo.html"><i class="fa fa-circle-o"></i> 公告通知</a></li>
+					            <li><a href="publicNotice.html"><i class="fa fa-circle-o"></i> 公告信息</a></li>
+					            <li><a href="accountManage.html"><i class="fa fa-circle-o"></i> 账号管理</a></li>
+					            <li><a href="rightsManage.html"><i class="fa fa-circle-o"></i> 权限管理</a></li>
+					            <li><a href="logManage.html"><i class="fa fa-circle-o"></i> 日志管理</a></li>
+				          	</ul>
+				        </li>
+			      	</ul>
+			    </section>
+			    <!-- /.sidebar -->
+			</aside>
+	  		<!-- E Left -->
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	日志管理<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">系统维护</a></li>
+				        <li class="active">日志管理</li>
+			      	</ol>
+			    </section>
+			    <!-- Main content -->
+			    <!-- content -->
+			    <section class="content">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				          	<div class="box">
+				            	<div class="box-header">
+				              		<h3 class="box-title">日志下载</h3>
+				            	</div>
+				            	<!-- /.box-header -->
+					            <div class="box-body table-responsive no-padding">
+					            	<a class="btn btn-app" href="XXX">
+                						<i class="fa fa-edit"></i> 系统日志
+              						</a>
+              						<!--  -->
+              						<a class="btn btn-app" href="UUU">
+                						<i class="fa fa-file"></i> 操作日志
+              						</a>
+              						<!---->
+              						<!--<a class="btn btn-app" id="teacherEnter">
+                						<i class="fa fa-users"></i> 辅导员信息导入
+              						</a>-->
+					            </div>
+				            	<!-- /.box-body -->
+				          	</div>
+				          	<!-- /.box -->
+				        </div>
+				    </div>
+			    </section>
+			    
+	  		</div>
+	  		<!-- E content -->
+	  		<!-- S footer -->
+	  		<footer class="main-footer">
+			    <div class="pull-right hidden-xs">
+			      	<b>Version</b> 1.0.0
+			    </div>
+		    	<strong>Copyright &copy; 2014-2016 <a href="#">哪哪哪</a>.</strong> 所有全部版权.
+		  	</footer>
+	  		<!-- E footer -->
+		</div>
+		<!--  -->
+		<!-- jQuery 2.2.3 -->
+		<script src="../common/js/jquery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<script src="../common/js/moment/moment.min.js"></script>
+		<!-- plugins -->
+		<script src="../common/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../common/plugins/iCheck/icheck.min.js"></script>
+		<script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<!--<script src="js/log.js"></script>-->
+	</body>
+</html>

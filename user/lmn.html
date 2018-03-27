@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lmn</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/AdminLTE/common/js/bootstrap/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/AdminLTE/common/css/font-awesome.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/AdminLTE/common/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/AdminLTE/common/css/AdminLTE.min.css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/AdminLTE/common/css/skins/_all-skins.min.css" />
+    <!-- daterange picker -->
+    <!-- //TODO 注意 time控件需要加入css文件 -->
+    <!-- <link rel="stylesheet" href="/AdminLTE/common/plugins/datepicker/datepicker3.css" />
+    <link rel="stylesheet" href="/AdminLTE/common/plugins/daterangepicker/daterangepicker.css" /> -->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/AdminLTE/common/plugins/datatables/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="/AdminLTE/common/plugins/datatables/dataTables.responsive.css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="/AdminLTE/common/plugins/iCheck/all.css" />
+    <link rel="stylesheet" href="/AdminLTE/common/css/common.css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <!--<link rel="stylesheet" href="/AdminLTE/common/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+    <!-- jQuery 2.2.3 -->
+    <script type="text/javascript" src="/AdminLTE/common/js/jquery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script type="text/javascript" src="/AdminLTE/common/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script type="text/javascript" src="/AdminLTE/common/js/app.min.js"></script>
+    <!-- date-range-picker -->
+    <script type="text/javascript" src="/AdminLTE/common/js/moment/moment.min.js"></script>
+    <!-- plugins -->
+    <!-- //TODO 注意 time控件需要加入js文件 -->
+    <!-- <script type="text/javascript" src="/AdminLTE/common/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/daterangepicker/daterangepicker.js"></script> -->
+    <!-- DataTables -->
+    <!-- //TODO checkbox 需要加入这个文件 iCheck 1.0.1 -->
+    <!-- <script type="text/javascript" src="/AdminLTE/common/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/datatables/dataTables.responsive.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/js/datatables.init.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/js/modal.control.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/js/common.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/js/jtools.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/layer/layer.js"></script> -->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  	</style>
+      <style type="text/css">
+          td, th
+          {
+              max-width: 500px;
+          }
+          .content-wrapper
+          {
+              position: relative;
+              margin-left: auto;
+          }
+          .form-inline .form-control
+          {
+              width: 100%;
+              margin: 5px 0;
+          }
+          .modal-body .table tbody tr td{
+          	text-align: auto;
+          	max-width: 220px;
+          }
+      </style>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini modal-open">
+    <!-- main -->
+    <!-- <button type="button" name="button" onclick="$('#tableModal').modal(); return false;">打开modal</button> -->
+    <div id="menuFrame" class="content-wrapper" id="main-container">
+    	<section class="content-header">
+    		<h1>学年学期设置</h1>
+    	    <ol class="breadcrumb">
+    	      	<li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+    	      	<li>系统维护</li>
+    	      	<li class="active">学年学期设置</li>
+    	    </ol>
+      </section>
+    	<!-- row -->
+    	<div class="content">
+        <div class="box box-info">
+          <form class="form-horizontal " id="form_edit" style="overflow:hidden;">
+            <input type="hidden" name="SCHOOL_CODE" id="SCHOOL_CODE" value="<%=head.SCHOOL_CODE %>" />
+            <div id="buttonId" class="box-header">
+              <h3 class="box-title">当前学年学期设置</h3>
+              <div class="box-tools">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-btn" style="display:inline-block">
+                    <button type="button" style="margin-right:10px;" class="btn btn-primary btn-xs" id="btnSave" onclick="$('#tableModal123').modal(); return false;">保存</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="form-group">
+                <label for="SCHOOL_NAME" class="col-sm-2 control-label">学校名称<span style="color: Red;">*</span></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="SCHOOL_NAME" name="SCHOOL_NAME" value="<%=head.SCHOOL_NAME%>" placeholder="学校名称">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="CURRENT_YEAR" class="col-sm-2 control-label">当前学年<span style="color: Red;">*</span></label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="CURRENT_YEAR" id="CURRENT_YEAR" d_value='<%=head.CURRENT_YEAR%>' ddl_name='ddl_year_type' show_type='t'>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="CURRENT_XQ" class="col-sm-2 control-label">当前学期<span style="color: Red;">*</span></label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="CURRENT_XQ" id="CURRENT_XQ" d_value='<%=head.CURRENT_XQ%>' ddl_name='ddl_xq' show_type='t'>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="CURRENT_XQ" class="col-sm-2 control-label">简介</label>
+                <div class="col-sm-10">
+                  <textarea id="REMARK" name="REMARK" rows="10" class="form-control"><%=head.REMARK%></textarea>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" name="button" onclick="$('#editDiv').modal(); return false;">modal</button>
+            </div>
+          </form>
+        </div>
+        <!--  -->
+
+<div id="menuFrame" class="content-wrapper" id="main-container">
+  <section class="content-header">
+    <h1>数据库查询</h1>
+      <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+          <li>个人中心</li>
+          <li class="active">数据库查询</li>
+      </ol>
+    </section>
+    <div class="content">
+            <div class="box box-default" id="SQLSearch">
+                <div class="box-body">
+                    <form class="form-horizontal col-sm-12" id="form_sqlsearch">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            数据库查询语句：</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" name="sql_txt" id="sql_txt" rows="5" cols=""></textarea>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" onclick="SqlSearch();" class="btn btn-block btn-primary btn-sm btn-SQL">
+                                查询</button>
+                            <button type="button" onclick="Reload();" class="btn btn-block btn-primary btn-sm btn-SQL">
+                                清除</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="box box-default" style="border-top: none;">
+                <table id="tablelist" class="table table-bordered table-striped table-hover">
+                </table>
+            </div>
+        </div>  
+</div>
+
+
+      </div>
+
+
+    </div>
+
+
+<!--  -->
+    <!-- 编辑界面 开始  form-inline  style="z-index: 1041; display: block; opacity: 1; overflow-y: auto;"-->
+    <div class="modal fade in" id="editDiv" style="display: block; z-index: 1041;">
+      <div class="modal-dialog modal-dw100">
+        <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal" onsubmit="return false;">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnTopClose"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">填写奖助申请表格</h4>
+          </div>
+          <div class="modal-body">
+
+              <div id="" class="box box-default" style="border: none; margin: 0;">
+                  <input type="hidden" id="hidOid" name="hidOid" value="" />
+                  <input type="hidden" id="hidSeqNo" name="hidSeqNo" value="" />
+                  <input type="hidden" id="hidProjectSeqNo" name="hidProjectSeqNo" value="" />
+                  <div class="nav-tabs-custom" style="box-shadow: none; margin-bottom: 0px;">
+                      <ul class="nav nav-tabs">
+                          <li id="tab_head" class="active"><a href="#tab_1" data-toggle="tab">基本信息</a></li>
+                          <li id="tab_family"><a href="#tab_2" data-toggle="tab">家庭情况</a></li>
+                          <li id="tab_reward"><a href="#tab_3" data-toggle="tab">获奖情况</a></li>
+                          <li id="tab_study"><a href="#tab_4" data-toggle="tab">学习情况</a></li>
+                          <li id="tab_model"><a href="#tab_5" data-toggle="tab">先进事迹</a></li>
+                          <li id="tab_file"><a href="#tab_6" data-toggle="tab">附件上传</a></li>
+                          <li id="tab_approveinfo"><a href="#tab_7" data-toggle="tab">评审情况</a></li>
+                      </ul>
+                      <div class="tab-content">
+                          <!--基本信息 开始-->
+                          <div class="tab-pane active" id="tab_1">
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">项目信息</h3>
+                              </div>
+                              <div class="box-body" id="div_ProjectInfo">
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          项目级别</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="PROJECT_CLASS" id="PROJECT_CLASS" d_value='' ddl_name='ddl_jz_project_class' show_type='t'>
+                                          </select>
+                                      </div>
+                                      <label class="col-sm-2 control-label">
+                                          申请表格类型</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="PROJECT_TYPE" id="PROJECT_TYPE" d_value='' ddl_name='ddl_jz_project_type' show_type='t'>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          项目学年</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="PROJECT_YEAR" id="PROJECT_YEAR" d_value='' ddl_name='ddl_year_type' show_type='t'>
+                                          </select>
+                                      </div>
+                                      <label class="col-sm-2 control-label">
+                                          项目金额</label>
+                                      <div class="col-sm-4">
+                                          <input name="PROJECT_MONEY" id="PROJECT_MONEY" type="text" class="form-control" placeholder="项目金额" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          项目名称</label>
+                                      <div class="col-sm-10">
+                                          <input name="PROJECT_NAME" id="PROJECT_NAME" type="text" class="form-control" placeholder="项目名称" />
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">学生信息</h3>
+                              </div>
+                              <div class="box-body" id="div_StudentInfo">
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">学号</label>
+                                      <div class="col-sm-4">
+                                        <input name="STU_NUMBER" id="STU_NUMBER" type="text" class="form-control" placeholder="学号" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">姓名</label>
+                                      <div class="col-sm-4">
+                                        <input name="STU_NAME" id="STU_NAME" type="text" class="form-control" placeholder="姓名" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">院系</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="XY" id="XY" d_value='' ddl_name='ddl_department' show_type='t'>
+                                          </select>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">专业</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="ZY" id="ZY" d_value='' ddl_name='ddl_zy' show_type='t'>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">年级</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="GRADE" id="GRADE" d_value='' ddl_name='ddl_grade' show_type='t'>
+                                          </select>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">班级</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="CLASS_CODE" id="CLASS_CODE" d_value='' ddl_name='ddl_class' show_type='t'>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">出生年月</label>
+                                      <div class="col-sm-4">
+                                          <input name="GARDE" id="GARDE" type="text" class="form-control" placeholder="出生年月" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">入学时间</label>
+                                      <div class="col-sm-4">
+                                          <input name="ENTERTIME" id="ENTERTIME" type="text" class="form-control" placeholder="入学时间" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">民族</label>
+                                      <div class="col-sm-4">
+                                          <input name="NATION" id="NATION" type="text" class="form-control" placeholder="民族" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">籍贯</label>
+                                      <div class="col-sm-4">
+                                          <input name="NATIVEPLACE" id="NATIVEPLACE" type="text" class="form-control" placeholder="籍贯" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                          <label class="col-sm-2 control-label">政治面貌</label>
+                                          <div class="col-sm-4">
+                                              <input name="POLISTATUS" id="POLISTATUS" type="text" class="form-control" placeholder="政治面貌" />
+                                          </div>
+
+                                          <label class="col-sm-2 control-label">学制</label>
+                                          <div class="col-sm-4">
+                                              <input name="SYSTEM" id="SYSTEM" type="text" class="form-control" placeholder="学制" />
+                                          </div>
+                                  </div>
+                                  <div class="form-group">
+                                          <label class="col-sm-2 control-label">联系电话</label>
+                                          <div class="col-sm-4">
+                                              <input name="MOBILENUM" id="MOBILENUM" type="text" class="form-control" placeholder="联系电话" />
+                                          </div>
+
+                                          <label class="col-sm-2 control-label">身份证号</label>
+                                          <div class="col-sm-4">
+                                              <input name="IDCARDNO" id="IDCARDNO" type="text" class="form-control" placeholder="身份证号" />
+                                          </div>
+                                  </div>
+                              </div>
+                              <div class="box-body" id="div_ProjectApplyInfo">
+                                  <div class="form-group" id="div_POST_INFO">
+                                          <label class="col-sm-2 control-label">曾/现任职情况</label>
+                                          <div class="col-sm-10">
+                                              <input name="POST_INFO" id="POST_INFO" type="text" class="form-control" placeholder="曾/现任职情况" />
+                                          </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="col-sm-6" id="div_REWARD_FLAG">
+                                          <label class="col-sm-4 control-label">
+                                              拟评何种类型</label>
+                                          <div class="col-sm-8">
+                                              <select class="form-control" name="REWARD_FLAG" id="REWARD_FLAG" d_value='' ddl_name='<%=m_RewardFlag %>'
+                                                  show_type='t'>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-6" id="div_STUDY_LEVEL">
+                                          <label class="col-sm-4 control-label">
+                                              学习阶段</label>
+                                          <div class="col-sm-8">
+                                              <select class="form-control" name="STUDY_LEVEL" id="STUDY_LEVEL" d_value='' ddl_name='ddl_apply_study_level'
+                                                  show_type='t'>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <!-- <div class="col-sm-6" id="div_TRAIN_TYPE"> -->
+                                          <label class="col-sm-2 control-label">培养方式</label>
+                                          <div class="col-sm-4" id="div_TRAIN_TYPE">
+                                              <select class="form-control" name="TRAIN_TYPE" id="TRAIN_TYPE" d_value='' ddl_name='ddl_apply_train_type' show_type='t'>
+                                              </select>
+                                          </div>
+                                      <!-- </div>
+                                      <div class="col-sm-6" id="div_HARD_FOR"> -->
+                                          <label class="col-sm-2 control-label">攻读学位</label>
+                                          <div class="col-sm-4" id="div_HARD_FOR">
+                                              <input name="HARD_FOR" id="HARD_FOR" type="text" class="form-control" placeholder="攻读学位" />
+                                          </div>
+                                      <!-- </div> -->
+                                  </div>
+                                  <div class="form-group" id="div_BASIC_UNIT">
+                                      <!-- <div class="col-sm-12" id="div_BASIC_UNIT"> -->
+                                          <label class="col-sm-2 control-label">基层单位</label>
+                                          <div class="col-sm-10">
+                                              <input name="BASIC_UNIT" id="BASIC_UNIT" type="text" class="form-control" placeholder="基层单位" />
+                                          </div>
+                                      <!-- </div> -->
+                                  </div>
+                              </div>
+                              <div class="box-header with-border" id="div_title_APPLY_REASON">
+                                  <h3 class="box-title"><label id="lab_txt_APPLY_REASON">申请理由</label><label id="lab_showmsg_APPLY_REASON"></label></h3>
+                              </div>
+                              <div class="box-body" id="div_APPLY_REASON">
+                                  <div class="form-group">
+                                          <textarea class="form-control" id="APPLY_REASON" name="APPLY_REASON" rows="5" placeholder="申请理由语句要通顺，有条理，无错别字，排版美观。不能排版到第二页。同年级同专业的两个获奖学生申请理由不能照搬。不能用申请书的格式，如出现尊敬的领导，此致敬礼等，也不能简单罗列本人奖励、履职等信息，还有不能将家庭贫困作为主要申请理由，不能只描述个人的家庭经济情况，应该从德、智、体等方面综合表述，如实反映学生成绩优异、社会实践创新能力突出及其他优秀事迹。"></textarea>
+                                  </div>
+                              </div>
+                              <div class="box-header with-border" id="div_title_SKILL_INFO">
+                                  <h3 class="box-title"><label>英语、计算机过级情况</label></h3>
+                              </div>
+                              <div class="box-body" id="div_SKILL_INFO">
+                                  <div class="form-group">
+                                          <textarea class="form-control" id="SKILL_INFO" name="SKILL_INFO" rows="5" placeholder="英语、计算机过级情况"></textarea>
+                                  </div>
+                              </div>
+                              <div class="box-header with-border" id="div_title_PUBLISH_INFO">
+                                  <h3 class="box-title">
+                                      <label>
+                                          论文发表、获得专利等情况</label></h3>
+                              </div>
+                              <div class="box-body" id="div_PUBLISH_INFO">
+                                  <div class="form-group">
+                                      <!-- <div class="col-sm-12"> -->
+                                          <textarea class="form-control" id="PUBLISH_INFO" name="PUBLISH_INFO" rows="5" placeholder="论文发表、获得专利等情况"></textarea>
+                                      <!-- </div> -->
+                                  </div>
+                              </div>
+                          </div>
+                          <!--基本信息 结束-->
+                          <!--家庭情况 开始-->
+                          <div class="tab-pane" id="tab_2">
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">家庭基本信息</h3>
+                                  <button type="button" class="btn btn-danger" id="update_familymember">同步数据</button>
+                              </div>
+                              <div class="form-horizontal box-body">
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">家庭户口</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="HK" id="HK" d_value='' ddl_name='ddl_stu_basic_hk'
+                                              show_type='t'>
+                                          </select>
+                                      </div>
+                                      <label class="col-sm-2 control-label">收入来源</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="INCOME_SOURCE" id="INCOME_SOURCE" d_value='' ddl_name='ddl_apply_incomsource'
+                                              show_type='t'>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          家庭年总收入</label>
+                                      <div class="col-sm-4">
+                                          <input name="TOTAL_INCOME" id="TOTAL_INCOME" type="text" class="form-control" placeholder="家庭年总收入" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          人均月收入</label>
+                                      <div class="col-sm-4">
+                                          <input name="PREMONTH_INCOME" id="PREMONTH_INCOME" type="text" class="form-control"
+                                              placeholder="人均月收入" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          家庭人口数</label>
+                                      <div class="col-sm-4">
+                                          <input name="FAMILY_NUM" id="FAMILY_NUM" type="text" class="form-control" placeholder="家庭人口数" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          邮政编码</label>
+                                      <div class="col-sm-4">
+                                          <input name="POSTCODE" id="POSTCODE" type="text" class="form-control" placeholder="邮政编码" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          家庭地址</label>
+                                      <div class="col-sm-10">
+                                          <input name="ADDRESS" id="ADDRESS" type="text" class="form-control" placeholder="家庭地址" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          认定情况</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="COGRIZA_INFO" id="COGRIZA_INFO" d_value='' ddl_name='ddl_dst_level'
+                                              show_type='t'>
+                                          </select>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          是否建档立卡</label>
+                                      <div class="col-sm-4">
+                                          <select class="form-control" name="IS_JDLK" id="IS_JDLK" d_value='' ddl_name='ddl_yes_no'
+                                              show_type='t'>
+                                          </select>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">家庭成员信息</h3>
+                              </div>
+                              <div class="form-horizontal box-body">
+                                  <table id="tablelist_familymember" class="table table-bordered table-striped table-hover">
+                                  </table>
+                              </div>
+                          </div>
+                          <!--家庭情况 开始-->
+                          <!--获奖情况 开始-->
+                          <div class="tab-pane" id="tab_3">
+                              <table id="tablelist_reward" class="table table-bordered table-striped table-hover">
+                              </table>
+                          </div>
+                          <!--获奖情况 开始-->
+                          <!--学习情况 开始-->
+                          <div class="tab-pane" id="tab_4">
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">上学年度综合考评成绩</h3>
+                                  <button type="button" class="btn btn-danger" id="update_study">同步数据</button>
+                              </div>
+                              <div class="form-horizontal box-body">
+                                  <div class="form-group" >
+                                      <label class="col-sm-2 control-label">
+                                          成绩排名：名次</label>
+                                      <div class="col-sm-4" id="div_SCORE_RANK">
+                                          <input name="SCORE_RANK" id="SCORE_RANK" type="text" class="form-control" placeholder="成绩排名：名次" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          总人数</label>
+                                      <div class="col-sm-4" id="div_SCORE_TOTAL_NUM">
+                                          <input name="SCORE_TOTAL_NUM" id="SCORE_TOTAL_NUM" type="text" class="form-control"
+                                              placeholder="成绩排名：总人数" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          是否实行综合考试排名</label>
+                                      <div class="col-sm-4" id="div_IS_SCORE_FLAG">
+                                          <select class="form-control" name="IS_SCORE_FLAG" id="IS_SCORE_FLAG" d_value='' ddl_name='ddl_yes_no'
+                                              show_type='t'>
+                                          </select>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          个人达标综合考评成绩</label>
+                                      <div class="col-sm-4" id="div_COM_SCORE">
+                                          <input name="COM_SCORE" id="COM_SCORE" type="text" class="form-control" placeholder="个人达标综合考评成绩" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          综合考评排名：名次</label>
+                                      <div class="col-sm-4" id="div_COM_SCORE_RANK">
+                                          <input name="COM_SCORE_RANK" id="COM_SCORE_RANK" type="text" class="form-control"
+                                              placeholder="综合考评排名：名次" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          总人数</label>
+                                      <div class="col-sm-4" id="div_COM_SCORE_TOTAL_NUM">
+                                          <input name="COM_SCORE_TOTAL_NUM" id="COM_SCORE_TOTAL_NUM" type="text" class="form-control"
+                                              placeholder="综合考评排名：总人数" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">
+                                          学年平均成绩</label>
+                                      <div class="col-sm-4" id="div_PREYEAR_SCORE">
+                                          <input name="PREYEAR_SCORE" id="PREYEAR_SCORE" type="text" class="form-control" placeholder="学年平均成绩" />
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">
+                                          必修课 / 门</label>
+                                      <div class="col-sm-4" id="div_MUST_COURSE_NUM">
+                                          <input name="MUST_COURSE_NUM" id="MUST_COURSE_NUM" type="text" class="form-control"
+                                              placeholder="必修课 / 门" />
+                                      </div>
+                                  </div>
+                                  <div class="form-group" id="div_PASS_COURSE_NUM">
+                                      <label class="col-sm-2 control-label">
+                                          其中及格以上 / 门</label>
+                                      <div class="col-sm-4">
+                                          <input name="PASS_COURSE_NUM" id="PASS_COURSE_NUM" type="text" class="form-control"
+                                              placeholder="其中及格以上 / 门" />
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="box-header with-border" id="div_title_tablelist_study">
+                                  <h3 class="box-title">上学年度科目成绩</h3>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-sm-12 control-label" style="text-align: left; color: Red;">
+                                      说明：本研学生均须填写4门以上科目成绩，保研、研三等实际无成绩者或不够4门者除外。</label>
+                              </div>
+                              <div class="form-horizontal box-body" id="list_tablelist_study">
+                                  <table id="tablelist_study" class="table table-bordered table-striped table-hover">
+                                  </table>
+                              </div>
+                          </div>
+                          <!--学习情况 开始-->
+                          <!--先进事迹 开始-->
+                          <div class="tab-pane" id="tab_5">
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      人生格言<label id="lab_showmsg_MOTTO"></label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+                                      <!-- <div class="col-sm-12"> -->
+                                          <textarea class="form-control" id="MOTTO" name="MOTTO" rows="5" placeholder="人生格言"></textarea>
+                                      <!-- </div> -->
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      师长点评<label id="lab_showmsg_TEACHER_INFO"></label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="TEACHER_INFO" name="TEACHER_INFO" rows="5" placeholder="师长点评"></textarea>
+
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      事迹正文<label id="lab_showmsg_MODEL_INFO"></label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="MODEL_INFO" name="MODEL_INFO" rows="10" placeholder="事迹正文"></textarea>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <!--先进事迹 开始-->
+                          <!--附件上传 开始-->
+                          <div class="tab-pane" id="tab_6">
+                              <table id="tablelist_file" class="table table-bordered table-striped table-hover">
+                              </table>
+                          </div>
+                          <!--附件上传 开始-->
+                          <!--评审情况 开始-->
+                          <div class="tab-pane" id="tab_7">
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      <label id="lab_RECOMM_REASON">
+                                          推荐理由</label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="RECOMM_REASON" name="RECOMM_REASON" rows="5" placeholder="推荐理由"></textarea>
+
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      <label id="lab_REVIEW_REASON">
+                                          班级民主评议小组意见</label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="REVIEW_REASON" name="REVIEW_REASON" rows="5" placeholder="班级民主评议小组意见"></textarea>
+
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      <label id="lab_COLLEGE_REASON">
+                                          学院审核意见</label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="COLLEGE_REASON" name="COLLEGE_REASON" rows="5"
+                                              placeholder="学院审核意见"></textarea>
+
+                                  </div>
+                              </div>
+                              <div class="box-header with-border">
+                                  <h3 class="box-title">
+                                      <label id="lab_SCHOOL_REASON">
+                                          学校审核意见</label></h3>
+                              </div>
+                              <div class="box-body">
+                                  <div class="form-group">
+
+                                          <textarea class="form-control" id="SCHOOL_REASON" name="SCHOOL_REASON" rows="5" placeholder="学校审核意见"></textarea>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <!--评审情况 开始-->
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-save" id="btnApprove">审批</button>
+              <button type="button" class="btn btn-primary btn-save" id="btnSave">保存</button>
+              <button type="button" class="btn btn-primary btn-submit" id="btnSubmit">提交</button>
+              <button type="button" class="btn btn-default pull-left" id="btnClose">关闭</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 编辑界面 结束-->
+    <!-- 家庭成员编辑界面 开始 -->
+    <div class="modal fade" id="tableModal_FamilyMember">
+        <div class="modal-dialog">
+            <form action="#" method="post" id="form_familymember" name="form_familymember" class="modal-content form-horizontal" onsubmit="return false;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">家庭成员</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="hidOid_FamilyMember" name="hidOid_FamilyMember" value="" />
+                <input type="hidden" id="hidSeqNo_FamilyMember" name="hidSeqNo_FamilyMember" value="" />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        姓名<span style="color: red">*</span></label>
+                    <div class="col-sm-4">
+                        <input name="MEMBER_NAME" id="MEMBER_NAME" type="text" class="form-control" placeholder="姓名"
+                            maxlength="20" />
+                    </div>
+
+                    <label class="col-sm-2 control-label">
+                        年龄<span style="color: red">*</span></label>
+                    <div class="col-sm-4">
+                        <input name="MEMBER_AGE" id="MEMBER_AGE" type="text" class="form-control" placeholder="年龄"
+                            maxlength="3" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        关系<span style="color: red">*</span></label>
+                    <div class="col-sm-4">
+                        <input name="MEMBER_RELATION" id="MEMBER_RELATION" type="text" class="form-control"
+                            placeholder="关系" maxlength="20" />
+                    </div>
+
+                    <label class="col-sm-2 control-label">
+                        工作单位</label>
+                    <div class="col-sm-4">
+                        <input name="MEMBER_UNIT" id="MEMBER_UNIT" type="text" class="form-control" placeholder="工作单位"
+                            maxlength="20" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-save" id="btnsave_familymember">保存</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- 家庭成员编辑界面 结束-->
+    <!-- 学习情况编辑界面 开始 -->
+    <div class="modal fade" id="tableModal_StudyList">
+        <div class="modal-dialog">
+            <form action="#" method="post" id="form_studylist" name="form_studylist" class="modal-content form-horizontal" onsubmit="return false;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">科目成绩</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="hidOid_StudyList" name="hidOid_StudyList" value="" />
+                <input type="hidden" id="hidSeqNo_StudyList" name="hidSeqNo_StudyList" value="" />
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        科目名称<span style="color: red">*</span></label>
+                    <div class="col-sm-4">
+                        <input name="COURSE_NAME" id="COURSE_NAME" type="text" class="form-control" placeholder="科目名称"
+                            maxlength="20" />
+                    </div>
+
+                    <label class="col-sm-2 control-label">
+                        成绩<span style="color: red">*</span></label>
+                    <div class="col-sm-4">
+                        <input name="SCORE" id="SCORE" type="text" class="form-control" placeholder="成绩"
+                            maxlength="3" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-save" id="btnsave_studylist">保存</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- 学习情况编辑界面 结束-->
+    <!-- 获奖情况编辑界面 开始 -->
+    <div class="modal fade" id="tableModal_Reward">
+        <div class="modal-dialog modal-dw60">
+            <form action="#" method="post" id="form_reward" name="form_reward" class="modal-content form-horizontal" onsubmit="return false;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">获奖项目</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="hidOid_Reward" name="hidOid_Reward" value="" />
+                <input type="hidden" id="hidSeqNo_Reward" name="hidSeqNo_Reward" value="" />
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">
+                        奖项名称<span style="color: red">*</span></label>
+                    <div class="col-sm-8">
+                        <input name="REWARD_NAME" id="REWARD_NAME" type="text" class="form-control" placeholder="获奖项目名称"
+                            maxlength="50" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">
+                        获奖学年<span style="color: red">*</span></label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="REWARD_DATE" id="REWARD_DATE" d_value='' ddl_name='ddl_year_type'
+                            show_type='t'>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">
+                        颁奖单位<span style="color: red">*</span></label>
+                    <div class="col-sm-8">
+                        <input name="AWARD_DEPARTMENT" id="AWARD_DEPARTMENT" type="text" class="form-control"
+                            placeholder="颁奖单位" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">
+                        奖项类型<span style="color: red">*</span></label>
+                    <div class="col-sm-8">
+                        <select class="form-control" name="REWARD_TYPE" id="REWARD_TYPE" d_value='' ddl_name='ddl_apply_reward_type'
+                            show_type='t'>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary btn-save" id="btnsave_reward">保存</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- 获奖情况编辑界面 结束-->
+    <!-- 附件上传编辑界面 开始 -->
+    <div class="modal fade" id="tableModal_File">
+        <div class="modal-dialog">
+          <form id="form_upload" name="form_upload" class="modal-content form-horizontal" runat="server">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">附件上传</h4>
+            </div>
+            <input type="hidden" id="hidSeqNo_File" name="hidSeqNo_File" value="" runat="server" />
+            <div class="modal-body">
+
+                <iframe id="uploadFrame" frameborder="0" src="" style="width: 100%; height: 300px;"></iframe>
+
+            </div>
+          </form>
+        </div>
+    </div>
+    <!-- 附件上传编辑界面 结束-->
+    <!-- 审核界面 开始 -->
+    <div class="modal fade" id="tableModal_Approve">
+        <div class="modal-dialog">
+          <form action="#" method="post" id="form_approve" name="form_approve" class="modal-content form-horizontal" onsubmit="return false;">
+            <input type="hidden" id="hidOid_ForApprove" name="hidOid_ForApprove" value="" />
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">审核界面</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">审核结果</label>
+                    <div class="col-sm-8">
+                        <input type="radio" id="approvePass" class="flat-red" value="P" name="approveType"
+                            checked />
+                        <label for="approvePass" id="lab_approvePass" style="margin-right: 10px;">
+                            通过</label><span>&nbsp;&nbsp;</span>
+                        <input type="radio" id="approveNoPass" class="flat-red" value="N" name="approveType" />
+                        <label for="approveNoPass" id="lab_approveNoPass" style="margin-right: 10px;">
+                            不通过</label>
+                    </div>
+                </div>
+                <div class="form-group" id="div_approveMsg">
+                    <label class="col-sm-3 control-label" id="lab_approveMsg">
+                        审核意见<label id="lab_approveMsg_showmsg"></label></label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="approveMsg" name="approveMsg" rows="5" cols=""></textarea>
+                    </div>
+                </div>
+                <div class="form-group" id="div_comMsg">
+                    <label class="col-sm-3 control-label" id="lab_comMsg">
+                        评审意见<label id="lab_comMsg_showmsg"></label></label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="comMsg" name="comMsg" rows="5" cols=""></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary btn-save" id="btnSubmitApprove">确认</button>
+            </div>
+          </form>
+        </div>
+    </div>
+    <!-- 审核界面 结束-->
+    <!-- 上传附件材料说明 开始 -->
+    <div class="modal fade" id="tableModal_RemarkFile">
+        <div class="modal-dialog">
+            <form action="#" method="post" class="modal-content" onsubmit="return false;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">奖助学金申请者需上传附件材料注释</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">
+                        申请本科生国家奖学金、三好学生标兵，研究生国家奖学金的学生需要根据自身实际情况提供相关佐证材料：
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">注意：要求拍摄原件，图片格式上传</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">1、参评学年课程成绩表（要求加盖教务处或学院公章）；</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">2、英语、计算机过级证书；</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">3、其他与专业学习相关的资格等级证书；</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">4、省（区）级（含）以上与专业学习相关的获奖证书；</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">5、已公开发表的论文刊物或其他相关作品。</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- 上传附件材料说明 结束-->
+<!--  -->
+    <script type="text/javascript">
+      $(function(){
+        //多选
+
+        $(document).on('show.bs.modal', '.modal', function (event) {
+          var zIndex = 1041 + (10 * $('.modal:visible').length);
+          var bgIndex = 1040 + (3 * $('.modal:visible').length);
+          $(this).css('z-index', zIndex);
+          // $('.modal-backdrop').not('.modal-stack').css('z-index', bgIndex).addClass('modal-stack');
+          console.log(zIndex);
+          setTimeout(function() {
+              $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+          }, 0);
+        });
+
+      });
+
+    </script>
+  </body>
+</html>

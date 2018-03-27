@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>流程插件应用</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+			<link rel="stylesheet" href="../../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../../common/plugins/datatables/dataTables.bootstrap.css" />
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../../common/plugins/iCheck/all.css" />
+      <link rel="stylesheet" href="../../common/plugins/wizard/bwizard.min.css" />
+		  <!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	流程插件应用<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">困难生认定</a></li>
+				        <li><a href="#">基础信息设置</a></li>
+				        <li class="active">流程插件应用</li>
+			      	</ol>
+			    </section>
+			    <!-- Main content -->
+	  			<section class="content" id="settingWizard">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				          	<div class="box">
+				            	<!-- <div class="box-header"> -->
+				              		<!-- <h3 class="box-title">各项时间设置</h3> -->
+				              		<!-- <div class="box-tools">
+				              			<div class="input-group input-group-sm" style="width: 100px;">
+				                  			<div class="input-group-btn">
+				                    			<button type="button" class="btn btn-primary btn-xs btn-add">新增</button>
+				                    			<button id="studentEnter" style="margin-left: 6px;" type="button" class="btn btn-primary btn-xs btn-enter">导入</button>
+				                  			</div>
+				                		</div>
+				              		</div> -->
+				            	<!-- </div> -->
+			    						<div class="box-body">
+													<!-- -->
+													<!-- <a class="btn btn-app" id="setRZ">
+                						<i class="fa fa-edit"></i> 认定学年设置
+              						</a>
+													<a class="btn btn-app" id="setDC">
+                						<i class="fa fa-edit"></i> 经济调查时间设置
+              						</a>
+													<a class="btn btn-app" id="setSQ">
+                						<i class="fa fa-edit"></i> 困难生申请时间设置
+              						</a> -->
+                          <div id="wizard">
+                            <ul>
+                              <li>第一步</li>
+                              <li>第二步</li>
+                              <li>第三步</li>
+                              <li>第四步</li>
+                            </ul>
+                            <div>
+                              <p>正文一</p>
+                            </div>
+                            <div>
+                              <p>正文二</p>
+                            </div>
+                            <div>
+                              <ul>
+                                 <li>列表1</li>
+                                 <li>列表2</li>
+                                 <li>列表3</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h1>Kitchen Sink</h1>
+
+                              <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+                              <h2>Header Level 2</h2>
+
+                              <ol>
+                                 <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                 <li>Aliquam tincidunt mauris eu risus.</li>
+                              </ol>
+
+                              <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+                              <h3>Header Level 3</h3>
+
+                              <ul>
+                                 <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                 <li>Aliquam tincidunt mauris eu risus.</li>
+                              </ul>
+
+                              <!-- <pre><code>
+                              #header h1 a {
+                                display: block;
+                                width: 300px;
+                                height: 80px;
+                              }
+                              </code></pre> -->
+                            </div>
+                          </div>
+					    				</div>
+					    				<!-- /.box-body -->
+			    						<div class="box-footer clearfix">
+                          <div class="input-group input-group-sm">
+                              <div class="input-group-btn">
+                                <button type="button" class="btn btn-primary btn-sm btn-add">新增流程</button>
+                                <button style="margin-left: 6px;" type="button" class="btn btn-primary btn-sm btn-enter">删除流程</button>
+                              </div>
+                          </div>
+					            </div>
+				          	</div>
+				          	<!-- /.box -->
+				        </div>
+				    </div>
+			    </section>
+
+
+	  		</div>
+	  		<!-- E content -->
+		</div>
+				<div class="modal" id="timeModal">
+						<div class="modal-dialog">
+							<form action="#" method="post" name="form" class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">×</span></button>
+										<h4 class="modal-title">时间设置</h4>
+									</div>
+									<div class="modal-body">
+										<!--<p>One fine body…</p>-->
+										<div class="form-group">
+											<label>日期:</label>
+
+											<div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-calendar"></i>
+												</div>
+												<input type="text" class="form-control pull-right" name="datetime" id="reservation">
+											</div>
+										<!-- /.input group -->
+									</div>
+									</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+											<button type="submit" class="btn btn-primary btn-save">保存</button>
+										</div>
+							</form>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+				</div>
+				<!--  -->
+        <!--  -->
+        <div class="modal" id="addModal">
+            <div class="modal-dialog">
+              <form action="#" method="post" name="form" class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">新增流程</h4>
+                  </div>
+                  <div class="modal-body">
+                    <!-- <div class="form-group">
+                        <label class="col-sm-2 control-label">id</label>
+                        <div class="col-sm-10">
+                          <input name="id" type="text" class="form-control" placeholder="Id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">user</label>
+                        <div class="col-sm-10">
+                          <input name="user" type="text" class="form-control" placeholder="User">
+                        </div>
+                    </div> -->
+                    <!-- checkbox -->
+                    <!-- <div class="form-group">
+                      <label class="col-sm-2 control-label">status</label>
+                      <div class="col-sm-10 checkbox">
+                          <input name="status" type="checkbox" class="flat-red">
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label">流程文本：</label>
+                        <div class="">
+                          <textarea id="editor" name="text" class="form-control" rows="10"></textarea>
+                          <!-- <div id="editor">
+                            <h1>Hello world!</h1>
+                            <p>I'm an instance of</p>
+                          </div> -->
+                        </div>
+                    </div>
+
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-primary btn-save">保存</button>
+                    </div>
+              </form>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+		<!-- jQuery 2.2.3 -->
+		<!-- <script src="../../common/js/jquery/jquery-2.2.3.min.js"></script> -->
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<!-- <script src="../../common/js/moment/moment.min.js"></script> -->
+		<!-- plugins -->
+		<!-- <script src="../../common/plugins/daterangepicker/daterangepicker.js"></script> -->
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../../common/plugins/iCheck/icheck.min.js"></script>
+		<!-- <script src="../../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../common/plugins/datatables/dataTables.bootstrap.min.js"></script> -->
+    <!--  -->
+    <script type="text/javascript" src="../../common/plugins/ckeditor/ckeditor.js"></script>
+    <!-- wizard -->
+    <script src="../../common/plugins/wizard/bwizard.js" type="text/javascript"></script>
+		<script src="../js/baseSettings.js"></script>
+		<script type="text/javascript">
+			// var jsType = "setTime";
+      // $("#wizard").bwizard({
+      //   cache: false,
+      //   clickableSteps: false,
+      //   // panelTemplate: '<div class="myPanelClass"></div>',
+      //   activeIndexChanged: function (e, ui) {
+      //     console.log('/////index');
+      //     console.log(e);
+      //     console.log(ui);
+      //   },
+      //   add: function (e, ui) {
+      //     console.log('/////add');
+      //     console.log(e);
+      //     console.log(ui);
+      //   },
+      //   validating: function (e, ui) {
+      //     console.log('/////validate');
+      //     console.log(e);
+      //     console.log(ui);
+      //   },
+      //   load: function (e, ui) {
+      //     console.log('/////load');
+      //     console.log(e);
+      //     console.log(ui);
+      //   },
+      // });
+      // $("#wizard").bwizard("add",2,"New Tab");
+      /* S */
+      CKEDITOR.config.height = 350;
+      CKEDITOR.config.width = 'auto';
+
+      var initSample = ( function() {
+      	var wysiwygareaAvailable = isWysiwygareaAvailable(),
+      		isBBCodeBuiltIn = !!CKEDITOR.plugins.get( 'bbcode' );
+
+      	return function() {
+      		var editorElement = CKEDITOR.document.getById( 'editor' );
+
+      		// :(((
+      		if ( isBBCodeBuiltIn ) {
+      			editorElement.setHtml(
+      				'Hello world!\n\n'
+      			);
+      		}
+
+      		// Depending on the wysiwygare plugin availability initialize classic or inline editor.
+      		if ( wysiwygareaAvailable ) {
+      			CKEDITOR.replace( 'editor' );
+      		} else {
+      			editorElement.setAttribute( 'contenteditable', 'true' );
+      			CKEDITOR.inline( 'editor' );
+
+      			// TODO we can consider displaying some info box that
+      			// without wysiwygarea the classic editor may not work.
+      		}
+      	};
+
+      	function isWysiwygareaAvailable() {
+      		// If in development mode, then the wysiwygarea must be available.
+      		// Split REV into two strings so builder does not replace it :D.
+      		if ( CKEDITOR.revision == ( '%RE' + 'V%' ) ) {
+      			return true;
+      		}
+
+      		return !!CKEDITOR.plugins.get( 'wysiwygarea' );
+      	}
+      } )();
+      /* E */
+      var _Bwizard = {
+        config: {
+          url:''
+        },
+        createOne: function(_obj, _opt){
+          var _wizard = {}, _this = null;
+          if(_obj){
+            _this = $(_obj);
+          } else {
+            return false;
+          }
+          var baseConfig = {
+            cache: false,
+            clickableSteps: false,
+            // panelTemplate: '<div class="myPanelClass"></div>',
+            activeIndexChanged: function (e, ui) {
+              console.log('/////index');
+              console.log(e);
+              console.log(ui);
+            },
+            // add: function (e, ui) {
+            //   console.log('/////add');
+            //   console.log(e);
+            //   console.log(ui);
+            // },
+            validating: function (e, ui) {
+              console.log('/////validate');
+              console.log(e);
+              console.log(ui);
+            },
+            load: function (e, ui) {
+              console.log('/////load');
+              console.log(e);
+              console.log(ui);
+            },
+
+          };
+          _wizard.initial = function(opt){
+            for (var e in opt) {
+              if (opt.hasOwnProperty(e)) {
+                // _opt[e]
+                baseConfig[e] = opt[e];
+              }
+            }
+            _this.bwizard(baseConfig);
+          };
+          _wizard.addOne = function(addBtn, _modal, saveBtn){
+            //TODO 打开modal，然后写文案，然后保存
+            var addDialog = function(){
+              $(addBtn).on('click', function(){
+                $(_modal).modal();
+                // for(var _each in _library){
+                //   // 初定义，一可清空上一次记录内容，二全都用arr
+                //   _imgLib[_each] = [];
+                // }
+                // console.log(_imgLib);
+                return false;
+              });
+            }
+            // addSubmit = function(){
+            //   modal.on("click", saveBtn, function() {
+            //     // var submitData = gridlyApply.addGridModel.addMsg;
+            //     // var submitData = _formData, submitUrl = bootstrapTable.submitUrl['addSubmitUrl'];
+            //     // var addVal = setMsg();
+            //     return false;
+            //   });
+            // };
+            addDialog();
+            // addSubmit();
+          };
+          _wizard.delOne = function(delBtn, _modal, saveBtn){
+            //TODO
+            var delDialog = function(){
+              $(delBtn).on('click', function(){
+                $(_modal).modal();
+                // for(var _each in _library){
+                //   // 初定义，一可清空上一次记录内容，二全都用arr
+                //   _imgLib[_each] = [];
+                // }
+                // console.log(_imgLib);
+                return false;
+              });
+            }
+
+            delDialog();
+          };
+          _wizard.initial(_opt);
+          return _wizard;
+        },
+      };
+
+      $(function(){
+        var _w = _Bwizard.createOne("#wizard");
+        _w.addOne("#settingWizard .btn-add", "#addModal", '.btn-save');
+        /* S editor */
+        initSample();
+      });
+
+		</script>
+	</body>
+</html>

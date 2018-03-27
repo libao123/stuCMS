@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>认证档次</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+			<link rel="stylesheet" href="../../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../../common/plugins/datatables/dataTables.bootstrap.css">
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../../common/plugins/iCheck/all.css">
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  		.hide{
+	  			display: none;
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	认证档次<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">困难生认定</a></li>
+				        <li><a href="#">基础信息设置</a></li>
+				        <li class="active">认证档次</li>
+			      	</ol>
+			    </section>
+			    <!-- Main content -->
+	  			<section class="content" id="content">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				          	<div class="box box-info" id="rangeTime">
+				            	<div class="box-header">
+				              		<h3 class="box-title">认证档次</h3>
+				              		 <div class="box-tools">
+				              			<div class="input-group input-group-sm" style="width: 46px;">
+				                  			<div class="input-group-btn">
+				                    			<button type="button" class="btn btn-primary btn-xs btn-add">新增</button>
+				                    			<!--<button id="studentEnter" style="margin-left: 6px;" type="button" class="btn btn-primary btn-xs btn-enter">导入</button>-->
+				                  			</div>
+				                		</div>
+				              		</div> 
+				            	</div>
+			    				<div class="box-body table-responsive no-padding">
+									<!--<a class="btn btn-app" id="setRZ" data-action="xx">
+                						<i class="fa fa-edit"></i> 认证学年设置
+              						</a>
+									<a class="btn btn-app" id="setDC" data-action="xy">
+	                					<i class="fa fa-edit"></i> 经济调查时间设置
+	              					</a>
+									<a class="btn btn-app" id="setSQ" data-action="xz">
+	                					<i class="fa fa-edit"></i> 困难生申请时间设置
+	              					</a>-->
+									<table class="table table-hover">
+						                <tr>
+							                <th>ID</th>
+							                <th>档次</th>
+							                <th>等级</th>
+							                <th>状态</th>
+							                <th>操作</th>
+						                </tr>
+						                <tr>
+						                  	<td>1</td>
+						                  	<td>家庭经济特别困难</td>
+						                  	<td>10</td>
+						                  	<td><input type="hidden" value="1" name="status" /><span class="label label-success">通过</span></td>
+						                  	<td>
+						                  		<button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button>
+						                  		<button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button>
+						                  	</td>
+						                </tr>
+						                <tr>
+						                  	<td>2</td>
+						                  	<td>家庭经济一般困难</td>
+						                  	<td>8</td>
+						                  	<td><input type="hidden" value="1" name="status" /><span class="label label-success">通过</span></td>
+						                  	<td>
+						                  		<button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button>
+						                  		<button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button>
+						                  	</td>
+						                </tr>
+						                <tr>
+						                  	<td>3</td>
+						                  	<td>家庭经济突发事件特殊困难</td>
+						                  	<td>6</td>
+						                  	<td><input type="hidden" value="1" name="status" /><span class="label label-success">通过</span></td>
+						                  	<td>
+						                  		<button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button>
+						                  		<button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button>
+						                  	</td>
+						                </tr>
+						                <tr>
+						                  	<td>4</td>
+						                  	<td>家庭经济不困难</td>
+						                  	<td>2</td>
+						                  	<td><input type="hidden" value="1" name="status" /><span class="label label-success">通过</span></td>
+						                  	<td>
+						                  		<button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button>
+						                  		<button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button>
+						                  	</td>
+						                </tr>
+					              	</table>
+					    		</div>
+					    		<!-- /.box-body -->
+				          	</div>
+				          	<div class="box-footer clearfix">
+					            <ul class="pagination pagination-sm no-margin pull-right">
+						            <li><a href="#">&laquo;</a></li>
+						            <li><a href="#">1</a></li>
+						            <li><a href="#">2</a></li>
+						            <li><a href="#">&raquo;</a></li>
+					            </ul>
+					        </div>
+				          	<!-- /.box -->
+				          	<!--<div class="box" id="fixedTime">
+				            	<div class="box-header">
+				              		<h3 class="box-title">学年时间相关设置</h3>
+				            	</div>
+			    				<div class="box-body table-responsive no-padding">
+									<a class="btn btn-app" id="setRZ" data-action="xx">
+                						<i class="fa fa-edit"></i> 认证学年设置
+              						</a>
+					    		</div>
+				          	</div>-->
+				          	<!-- /.box -->
+				        </div>
+				    </div>
+			    </section>
+
+
+	  		</div>
+	  		<!-- E content -->
+		</div>
+        <!--  -->
+        <div class="modal" id="fixedModal">
+          	<div class="modal-dialog">
+	            <form action="#" method="post" name="form" class="modal-content  form-horizontal">
+	              	<div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                  	<span aria-hidden="true">×</span></button>
+		                <h4 class="modal-title">认证学年设置</h4>
+	              	</div>
+	              	<div class="modal-body">
+	                	<div class="form-group">
+		                  	<label class="col-sm-2 control-label">设置学年</label>
+
+		                  	<div class="col-sm-10">
+		                    	<input name="year" type="text" class="form-control" placeholder="year">
+		                  	</div>
+		                </div>
+
+	              	</div>
+		              	<div class="modal-footer">
+		                	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+		                	<button type="submit" class="btn btn-primary btn-save">保存</button>
+		              	</div>
+	            </form>
+	            <!-- /.modal-content -->
+          	</div>
+          	<!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal" id="studentEnterModal">
+          	<div class="modal-dialog">
+	            <form action="#" method="post" name="form" class="modal-content">
+	              	<div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                  	<span aria-hidden="true">×</span></button>
+		                <h4 class="modal-title">学生基本信息批量导入（附表）</h4>
+	              	</div>
+	              	<div class="modal-body">
+	                	<!--<p>学生基本信息数据批量上传操作；财务信息和研究生学生基本信息批量导入；</p>-->
+	                	<div class="form-group">
+		                	<label for="exampleInputFile">File input</label>
+		                	<input type="file" name="file" multiple="multiple" />
+
+		                	<p class="help-block">学生基本信息数据批量上传操作；财务信息和研究生学生基本信息批量导入；</p>
+		                </div>
+	              	</div>
+		              	<div class="modal-footer">
+		                	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+		                	<button type="submit" class="btn btn-primary btn-save">保存</button>
+		              	</div>
+	            </form>
+	            <!-- /.modal-content -->
+          	</div>
+          	<!-- /.modal-dialog -->
+        </div>
+        <!-- -->
+		<div class="modal" id="infoModal">
+          	<div class="modal-dialog">
+	            <form action="post" method="post" name="form" class="modal-content form-horizontal">
+	              	<div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                  	<span aria-hidden="true">×</span></button>
+		                <h4 class="modal-title">综测成绩</h4>
+	              	</div>
+	              	<div class="modal-body">
+		                <div class="form-group hide">
+		                  	<div class="col-sm-2"><label class="control-label">id</label></div>
+		
+		                  	<div class="col-sm-10">
+		                    	<input name="id" type="text" class="form-control" placeholder="Id" />
+		                  	</div>
+		                </div>
+		                <div class="form-group">
+		                  	<div class="col-sm-2"><label class="control-label">档次</label></div>
+		
+		                  	<div class="col-sm-10">
+		                    	<input name="grade" type="text" class="form-control" placeholder="User" />
+		                  	</div>
+		                </div>
+		                <div class="form-group">
+		                  	<div class="col-sm-2"><label class="control-label">等级</label></div>
+		
+		                  	<div class="col-sm-10">
+		                    	<input name="level" type="text" class="form-control" placeholder="score" />
+		                  	</div>
+		                </div>
+		                <!-- checkbox -->
+		                <div class="form-group">
+		                	<div class="col-sm-2"><label class="control-label">状态</label></div>
+		                	<div class="col-sm-10 checkbox">
+		                    	<input name="status" type="checkbox" class="flat-red">
+		                  	</div>
+		                </div>
+	              	</div>
+	              	<!--  -->
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+		                <button type="submit" class="btn btn-primary btn-save">保存</button>
+		            </div>
+	            </form>
+	            <!-- /.modal-content -->
+          	</div>
+          	<!-- /.modal-dialog -->
+        </div>
+        <!-- -->
+        <div class="modal modal-warning" id="delModal">
+          <div class="modal-dialog">
+          	<form action="#" method="post" name="form" class="modal-content  form-horizontal">
+            <!--<div class="modal-content">-->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">删除</h4>
+              </div>
+              <div class="modal-body">
+                <p>确定要删除该信息？</p>
+                <input type="hidden" name="id" value="" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-outline">确定</button>
+              </div>
+            </form>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        
+		<!-- jQuery 2.2.3 -->
+		<script src="../../common/js/jquery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<script src="../../common/js/moment/moment.min.js"></script>
+		<!-- plugins -->
+		<script src="../../common/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../../common/plugins/iCheck/icheck.min.js"></script>
+		<script src="../../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+		<script src="../js/baseSetting.js"></script>
+		<script type="text/javascript">
+			var jsType = "commonTable";
+			var tableArr = ['id', 'grade', 'level', 'status'];
+		</script>
+	</body>
+</html>

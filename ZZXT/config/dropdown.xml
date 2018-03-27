@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="gb2312"?>
+<dropdowns>
+  <!--*************************************************公共下拉值 START*******************************************************************************-->
+  <!--是否标识-->
+  <dropdown name="ddl_yes_no" ddtype="static">
+    <item value="N" text="否" />
+    <item value="Y" text="是" />
+  </dropdown>
+  <!--是否可用-->
+  <dropdown name="ddl_use_flag" ddtype="static">
+    <item value="0" text="不可用" />
+    <item value="1" text="可用" />
+  </dropdown>
+  <!--开关标识-->
+  <dropdown name="ddl_on_off" ddtype="static">
+    <item value="N" text="关闭" />
+    <item value="Y" text="开启" />
+  </dropdown>
+  <!--队列处理状态-->
+  <dropdown name="ddl_queue_status" ddtype="static">
+    <item value="N" text="未处理" />
+    <item value="Y" text="处理成功" />
+    <item value="E" text="处理异常" />
+  </dropdown>
+  <!--年级-->
+  <dropdown name="ddl_grade" ddtype="static">
+    <item value="2009" text="2009" />
+    <item value="2010" text="2010" />
+    <item value="2011" text="2011" />
+    <item value="2012" text="2012" />
+    <item value="2013" text="2013" />
+    <item value="2014" text="2014" />
+    <item value="2015" text="2015" />
+    <item value="2016" text="2016" />
+    <item value="2017" text="2017" />
+    <item value="2018" text="2018" />
+    <item value="2019" text="2019" />
+    <item value="2020" text="2020" />
+    <item value="2021" text="2021" />
+    <item value="2022" text="2022" />
+  </dropdown>
+  <!--学年类型-->
+  <dropdown name="ddl_year_type" ddtype="static">
+    <item value="2015" text="2015-2016" />
+    <item value="2016" text="2016-2017" />
+    <item value="2017" text="2017-2018" />
+    <item value="2018" text="2018-2019" />
+    <item value="2019" text="2019-2010" />
+    <item value="2020" text="2020-2021" />
+    <item value="2021" text="2021-2022" />
+    <item value="2022" text="2022-2023" />
+  </dropdown>
+  <!--学制-->
+  <dropdown name="ddl_edu_system" ddtype="static">
+    <item value="2" text="两年" />
+    <item value="3" text="三年" />
+    <item value="4" text="四年" />
+    <item value="5" text="五年" />
+    <item value="6" text="六年" />
+    <item value="7" text="七年" />
+    <item value="8" text="八年" />
+  </dropdown>
+  <!--家庭户口-->
+  <dropdown name="ddl_stu_basic_hk" ddtype="static">
+    <item value="URBAN" text="城镇" />
+    <item value="RURAL" text="农村" />
+  </dropdown>
+  <!--低保家庭-->
+  <dropdown name="ddl_minimum" ddtype="static">
+    <item value="U" text="城镇低保" />
+    <item value="R" text="农村低保" />
+  </dropdown>
+  <!--建档立卡贫困户-->
+  <dropdown name="ddl_record_poor" ddtype="static">
+    <item value="G" text="广西农村建档立卡" />
+    <item value="O" text="区外建档立卡" />
+  </dropdown>
+  <!--学生信息：学生类型-->
+  <dropdown name="ddl_basic_stu_type" ddtype="static">
+    <item value="B" text="本科生" />
+    <item value="Y" text="硕士研究生" />
+    <item value="P" text="博士研究生" />
+  </dropdown>
+  <!--*************************************************公共下拉值 START*******************************************************************************-->
+
+  <!--****************************************单据流转字典表 START****************************************-->
+  <!--单据类型-->
+  <dropdown name="ddl_doc_type" ddtype="sql">
+    <sql ValueMember="DOC_TYPE" DisplayMember="DOC_SPEC">
+      SELECT DOC_TYPE, DOC_SPEC FROM COD_BIZ_CODES
+    </sql>
+  </dropdown>
+  <!--单据类型：需要设置审批流程-->
+  <dropdown name="ddl_doc_type_needflow" ddtype="sql">
+    <sql ValueMember="DOC_TYPE" DisplayMember="DOC_SPEC">
+      SELECT DOC_TYPE, DOC_SPEC FROM COD_BIZ_CODES WHERE NEED_WORKFLOW = 'Y'
+    </sql>
+  </dropdown>
+  <!--单据锁单状态-->
+  <dropdown name="ddl_CHK_STATUS" ddtype="static">
+    <item value="Y" text="锁单" />
+    <item value="N" text="解锁" />
+  </dropdown>
+  <!--单据流转环节-->
+  <dropdown name="ddl_STEP_NO" ddtype="static">
+    <item value="A0" text="申请" />
+    <item value="D1" text="辅导员审批" />
+    <item value="D2" text="院级审批" />
+    <item value="D3" text="校级审批" />
+    <item value="D4" text="审批结束" />
+  </dropdown>
+  <!--单据申请类型-->
+  <dropdown name="ddl_DECLARE_TYPE" ddtype="static">
+    <item value="D" text="业务申请" />
+    <item value="R" text="撤销申请" />
+  </dropdown>
+  <!--单据回执状态-->
+  <dropdown name="ddl_RET_CHANNEL" ddtype="static">
+    <item value="A0000" text="预录入" />
+    <item value="A0010" text="申请中" />
+    <item value="D1000" text="辅导员待审" />
+    <item value="D1010" text="辅导员通过" />
+    <item value="D1020" text="辅导员不通过" />
+    <item value="D2000" text="院级待审" />
+    <item value="D2010" text="院级通过" />
+    <item value="D2020" text="院级不通过" />
+    <item value="D3000" text="校级待审" />
+    <item value="D3010" text="校级通过" />
+    <item value="D3020" text="校级不通过" />
+    <item value="D4000" text="审批通过" />
+  </dropdown>
+  <!--审批岗位，同 角色 ddl_ua_role-->
+  <!--****************************************单据流转字典表 END****************************************-->
+
+  <!--*************************************************基础数据 START*******************************************************************************-->
+  <!--****************************************基础数据 START****************************************-->
+  <!--学院：查询状态为1可用的记录，类型为教学-->
+  <dropdown name="ddl_department" ddtype="sql">
+    <sql ValueMember="dw" DisplayMember="mc">
+      SELECT dw, mc FROM t_xt_department WHERE zt = '1' AND lx = '1' order by sequence
+    </sql>
+  </dropdown>
+  <!--全部单位：查询状态为1可用的记录-->
+  <dropdown name="ddl_all_department" ddtype="sql">
+    <sql ValueMember="dw" DisplayMember="mc">
+      SELECT dw, mc FROM t_xt_department WHERE zt = '1' order by sequence
+    </sql>
+  </dropdown>
+  <!--单位类型-->
+  <dropdown name="ddl_department_type" ddtype="static">
+    <item value="1" text="教学单位" />
+    <item value="2" text="管理部门" />
+    <item value="3" text="业务单位" />
+    <item value="4" text="附属单位" />
+  </dropdown>
+  <!--系所表-->
+  <dropdown name="ddl_xsh" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xsh
+    </sql>
+  </dropdown>
+  <!--专业：查询状态为1可用的记录-->
+  <dropdown name="ddl_zy" ddtype="sql">
+    <sql ValueMember="zy" DisplayMember="mc">
+      SELECT zy, mc FROM t_jx_zy WHERE zt = '1'
+    </sql>
+  </dropdown>
+  <!--班级-->
+  <dropdown name="ddl_class" ddtype="sql">
+    <sql ValueMember="CLASSCODE" DisplayMember="CLASSNAME">
+      SELECT CLASSCODE, CLASSNAME FROM BASIC_CLASS_INFO
+    </sql>
+  </dropdown>
+  <!--****************************************基础数据 START****************************************-->
+
+  <!--****************************************字典表 START****************************************-->
+  <!--办学类型-->
+  <dropdown name="ddl_bxlx" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_bxlx
+    </sql>
+  </dropdown>
+  <!--国籍-->
+  <dropdown name="ddl_gj" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_gj
+    </sql>
+  </dropdown>
+  <!--民族-->
+  <dropdown name="ddl_mz" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_mz
+    </sql>
+  </dropdown>
+  <!--入学方式-->
+  <dropdown name="ddl_rxfs" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_rxfs
+    </sql>
+  </dropdown>
+  <!--生源地-->
+  <dropdown name="ddl_syszd" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_syszd
+    </sql>
+  </dropdown>
+  <!--性别-->
+  <dropdown name="ddl_xb" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xb
+    </sql>
+  </dropdown>
+  <!--学籍状态-->
+  <dropdown name="ddl_xjzt" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xjzt
+    </sql>
+  </dropdown>
+  <!--学历表-->
+  <dropdown name="ddl_xl" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xl
+    </sql>
+  </dropdown>
+  <!--学期表-->
+  <dropdown name="ddl_xq" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xq
+    </sql>
+  </dropdown>
+  <!--学位表-->
+  <dropdown name="ddl_xw" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_xw
+    </sql>
+  </dropdown>
+  <!--证件类型-->
+  <dropdown name="ddl_zjlx" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_zjlx
+    </sql>
+  </dropdown>
+  <!--专业类别-->
+  <dropdown name="ddl_zylb" ddtype="sql">
+    <sql ValueMember="zy" DisplayMember="mc">
+      SELECT zy, mc FROM t_zd_zylb
+    </sql>
+  </dropdown>
+  <!--政治面貌-->
+  <dropdown name="ddl_zzmm" ddtype="sql">
+    <sql ValueMember="dm" DisplayMember="mc">
+      SELECT dm, mc FROM t_zd_zzmm
+    </sql>
+  </dropdown>
+  <!--****************************************字典表 END****************************************-->
+  <!--*************************************************基础数据 END*******************************************************************************-->
+
+  <!--*************************************************日志管理 START*******************************************************************************-->
+  <!-- 操作类型 -->
+  <dropdown name="ddl_log_action_type" ddtype="static">
+    <item value="0" text="登录" />
+    <item value="1" text="退出" />
+    <item value="2" text="查看" />
+    <item value="3" text="添加" />
+    <item value="4" text="编辑" />
+    <item value="5" text="删除" />
+    <item value="6" text="验证" />
+    <item value="7" text="申报" />
+    <item value="8" text="其它" />
+  </dropdown>
+  <!--日志记录级别-->
+  <dropdown name="ddl_log_level" ddtype="static">
+    <item value="INFO" text="一般信息" />
+    <item value="WARN" text="警告" />
+    <item value="ERROR" text="一般错误" />
+    <item value="DEBUG" text="调试信息" />
+    <item value="FATAL" text="致命错误" />
+  </dropdown>
+  <!--日志记录类型-->
+  <dropdown name="ddl_log_record_type" ddtype="static">
+    <item value="0" text="内部操作日志" />
+    <item value="1" text="应用操作日志" />
+  </dropdown>
+  <!--*************************************************日志管理 END*******************************************************************************-->
+
+  <!--*************************************************用户管理 START*******************************************************************************-->
+  <!--用户类型-->
+  <dropdown name="ddl_user_type" ddtype="static">
+    <item value="S" text="学生" />
+    <item value="T" text="教师" />
+  </dropdown>
+  <!--用户：学生类型-->
+  <dropdown name="ddl_ua_stu_type" ddtype="static">
+    <item value="B" text="本科生" />
+    <item value="Y" text="研究生" />
+  </dropdown>
+  <!--角色-->
+  <dropdown name="ddl_ua_role" ddtype="sql">
+    <sql ValueMember="ROLEID" DisplayMember="NAME">
+      SELECT ROLEID,NAME FROM UA_ROLE ORDER BY ROLEID
+    </sql>
+  </dropdown>
+  <!--编班管理：班级辅导员类型-->
+  <dropdown name="ddl_group_type" ddtype="static">
+    <item value="F" text="辅导员" />
+    <item value="Y" text="研究生" />
+  </dropdown>
+  <!--*************************************************用户管理 END*******************************************************************************-->
+
+  <!--*************************************************奖助管理 START*******************************************************************************-->
+  <!--奖助管理：奖助项目级别-->
+  <dropdown name="ddl_jz_project_class" ddtype="sql">
+    <sql ValueMember="CLASS_CODE" DisplayMember="CLASS_NAME">
+      SELECT CLASS_CODE,CLASS_NAME FROM SHOOLAR_PROJECT_CLASS ORDER BY SEQENCE
+    </sql>
+  </dropdown>
+  <!--奖助管理：奖助项目类型-->
+  <dropdown name="ddl_jz_project_type" ddtype="sql">
+    <sql ValueMember="TYPE_CODE" DisplayMember="TYPE_NAME">
+      SELECT TYPE_CODE,TYPE_NAME FROM SHOOLAR_PROJECT_TYPE
+    </sql>
+  </dropdown>
+  <!--奖助管理：奖助项目类型(全部)-->
+  <dropdown name="ddl_jz_project_name" ddtype="sql">
+    <sql ValueMember="SEQ_NO" DisplayMember="PROJECT_NAME">
+      SELECT SEQ_NO,PROJECT_NAME FROM SHOOLAR_PROJECT_HEAD
+    </sql>
+  </dropdown>
+  <!--奖助管理：奖助项目类型(已结束)-->
+  <dropdown name="ddl_jz_project_name_end" ddtype="sql">
+    <sql ValueMember="SEQ_NO" DisplayMember="PROJECT_NAME">
+      SELECT SEQ_NO,PROJECT_NAME FROM SHOOLAR_PROJECT_HEAD WHERE APPLY_END &lt; CONVERT(varchar(100), GETDATE(),23)
+    </sql>
+  </dropdown>
+  <!--奖助申请：家庭收入来源-->
+  <dropdown name="ddl_apply_incomsource" ddtype="static">
+    <item value="A" text="工资" />
+    <item value="B" text="个体" />
+    <item value="C" text="投资" />
+    <item value="D" text="打工" />
+    <item value="E" text="务农" />
+    <item value="F" text="租金" />
+    <item value="G" text="政府救济" />
+    <item value="H" text="亲友救济" />
+    <item value="O" text="其他" />
+  </dropdown>
+
+  <!--奖助申请：拟评何种类型（单项奖学金/三好学生）-->
+  <dropdown name="ddl_apply_reward_flag" ddtype="static">
+    <item value="A" text="三好学生" />
+    <item value="B" text="三好学生标兵" />
+    <item value="C" text="德育单项奖" />
+    <item value="D" text="智育单项奖" />
+    <item value="E" text="体艺单项奖" />
+    <item value="F" text="能力单项奖" />
+  </dropdown>
+
+  <!--奖助申请：拟评何种类型（三好学生）-->
+  <dropdown name="ddl_apply_reward_flag_1" ddtype="static">
+    <item value="A" text="三好学生" />
+    <item value="B" text="三好学生标兵" />
+  </dropdown>
+
+  <!--奖助申请：拟评何种类型（单项奖学金）-->
+  <dropdown name="ddl_apply_reward_flag_2" ddtype="static">
+    <item value="C" text="德育单项奖" />
+    <item value="D" text="智育单项奖" />
+    <item value="E" text="体艺单项奖" />
+    <item value="F" text="能力单项奖" />
+  </dropdown>
+
+  <!--奖助申请：学习阶段-->
+  <dropdown name="ddl_apply_study_level" ddtype="static">
+    <item value="Y" text="硕士" />
+    <item value="P" text="博士" />
+  </dropdown>
+
+  <!--奖助申请：培养方式-->
+  <dropdown name="ddl_apply_train_type" ddtype="static">
+    <item value="A" text="非定向" />
+    <item value="B" text="自筹经费" />
+    <item value="C" text="委托培养" />
+    <item value="D" text="定向" />
+    <item value="E" text="在职" />
+    <item value="F" text="其他" />
+  </dropdown>
+
+  <!--奖助申请：奖励类型-->
+  <dropdown name="ddl_apply_reward_type" ddtype="static">
+    <item value="P" text="奖助" />
+    <item value="O" text="其他" />
+  </dropdown>
+
+  <!--奖助申请：附件类型-->
+  <dropdown name="ddl_apply_file_type" ddtype="static">
+    <item value="1" text="参评学年课程成绩表" />
+    <item value="2" text="英语、计算机过级证书" />
+    <item value="3" text="其他与专业学习相关的资格等级证书" />
+    <item value="4" text="省（区）级（含）以上与专业学习相关的获奖证书" />
+    <item value="5" text="已公开发表的论文刊物或其他相关作品" />
+    <item value="6" text="个人生活照" />
+  </dropdown>
+
+  <!--信息核对：核对阶段-->
+  <dropdown name="ddl_apply_check_step" ddtype="static">
+    <item value="N" text="学生未核对" />
+    <item value="1" text="学生已核对" />
+    <item value="2" text="辅导员已核对" />
+    <item value="3" text="学院已核对" />
+  </dropdown>
+  <!--*************************************************奖助管理 END*******************************************************************************-->
+
+  <!--*************************************************公告管理 START*******************************************************************************-->
+  <!--公告类型-->
+  <dropdown name="ddl_notice_type" ddtype="static">
+    <item value="N" text="近期公告" />
+    <item value="W" text="工作通知" />
+    <item value="Z" text="政策解读" />
+    <item value="J" text="资助动态" />
+  </dropdown>
+
+  <!--公告快速进入设置功能选项-->
+  <dropdown name="ddl_notice_fast_in" ddtype="static">
+    <item value="39e78a6c-8d0d-4084-89b6-9a378977" text="奖助申请" />
+    <item value="761f1531-ef31-4170-a90f-20344b48" text="奖助信息核对" />
+    <item value="e3f7b1f2-8d9e-4c1a-beaa-8b042666" text="保险信息核对" />
+    <item value="3c2885bb-a750-4e54-9530-2862b37e" text="贷款信息核对" />
+    <item value="675b4548-5ade-4f64-9ec2-23476533" text="困难生认定申请" />
+    <item value="ff250fdd-7cbd-4515-ac32-b7a19858" text="家庭经济调查" />
+  </dropdown>
+  <!--*************************************************公告管理 END*******************************************************************************-->
+
+  <!--*************************************************信息管理 START*******************************************************************************-->
+  <!--信息类型-->
+  <dropdown name="ddl_msg_type" ddtype="static">
+    <item value="M" text="个人消息" />
+    <item value="J" text="奖助信息核对" />
+    <item value="I" text="保险信息核对" />
+    <item value="L" text="贷款信息核对" />
+  </dropdown>
+
+  <!--信息已读未读类型-->
+  <dropdown name="ddl_msg_mark" ddtype="static">
+    <item value="N" text="未读" />
+    <item value="Y" text="已读" />
+  </dropdown>
+  <!--*************************************************信息管理 END*******************************************************************************-->
+
+  <!--*************************************************贷款管理 START*******************************************************************************-->
+  <!--贷款类型-->
+  <dropdown name="ddl_loan_type" ddtype="static">
+    <item value="A" text="生源地信用助学贷款（国开行）" />
+    <item value="B" text="生源地信用助学贷款（非国开行）" />
+    <item value="C" text="校园地国家助学贷款" />
+  </dropdown>
+  <!--贷款项目-->
+  <dropdown name="ddl_loan_project" ddtype="sql">
+    <sql ValueMember="SEQ_NO" DisplayMember="LOAN_NAME">
+      SELECT SEQ_NO,LOAN_NAME FROM INSUR_PROJECT_HEAD ORDER BY OP_TIME DESC
+    </sql>
+  </dropdown>
+  <!--*************************************************贷款管理 END*******************************************************************************-->
+
+  <!--*************************************************保险管理 START*******************************************************************************-->
+  <!--保险类型-->
+  <dropdown name="ddl_insur_type" ddtype="static">
+    <item value="A" text="医保" />
+    <item value="B" text="学安险" />
+    <item value="C" text="校园方责任保险" />
+  </dropdown>
+  <!--保险项目-->
+  <dropdown name="ddl_insur_project" ddtype="sql">
+    <sql ValueMember="SEQ_NO" DisplayMember="INSUR_NAME">
+      SELECT SEQ_NO,INSUR_NAME FROM INSUR_PROJECT_HEAD ORDER BY OP_TIME DESC
+    </sql>
+  </dropdown>
+  <!--参保人员类别-->
+  <dropdown name="ddl_apply_insur_type" ddtype="static">
+    <item value="A" text="普通在校学生" />
+    <item value="B" text="低保对象" />
+    <item value="C" text="建档立卡贫困户" />
+    <item value="D" text="重度残疾" />
+    <item value="E" text="特困人员" />
+    <item value="F" text="计生政策子女" />
+  </dropdown>
+  <!--申请弃保类别-->
+  <dropdown name="ddl_apply_refund_type" ddtype="static">
+    <item value="1" text="（1）辅导员是否亲自与学生和家长确认学生本人已购买同类型医疗保险，保险名称为：" />
+    <item value="2" text="（2）辅导员是否已征求家长意见，家长同意学生不在校购买医保" />
+    <item value="3" text="（3）辅导员是否要求学生当面签署“放弃投保确认书”" />
+  </dropdown>
+  <!--*************************************************保险管理 END*******************************************************************************-->
+
+  <!--****************************************困难生认定 START****************************************-->
+  <!--选择认定档次-->
+  <dropdown name="ddl_dst_level" ddtype="sql">
+    <sql ValueMember="LEVEL_CODE" DisplayMember="LEVEL_NAME">
+      SELECT LEVEL_CODE,LEVEL_NAME FROM DST_LEVEL_INFO
+    </sql>
+  </dropdown>
+  <!--选择（省份）-->
+  <dropdown name="ddl_province" ddtype="sql">
+    <sql ValueMember="REGION_CODE" DisplayMember="REGION_NAME">
+      SELECT REGION_CODE,REGION_NAME FROM REGION_INFO WHERE PARENT_ID='1' ORDER BY REGION_CODE
+    </sql>
+  </dropdown>
+  <!--选择行政区-->
+  <dropdown name="ddl_region" ddtype="sql">
+    <sql ValueMember="REGION_CODE" DisplayMember="REGION_NAME">
+      SELECT REGION_CODE,REGION_NAME FROM REGION_INFO
+    </sql>
+  </dropdown>
+  <!--与家庭成员关系-->
+  <dropdown name="ddl_relation" ddtype="static">
+    <item value="01" text="父亲" />
+    <item value="02" text="母亲" />
+    <item value="03" text="兄弟" />
+    <item value="04" text="兄妹" />
+    <item value="05" text="姐弟" />
+    <item value="06" text="姐妹" />
+    <item value="07" text="叔叔" />
+    <item value="08" text="伯伯" />
+    <item value="09" text="祖父" />
+    <item value="10" text="祖母" />
+    <item value="11" text="其他" />
+  </dropdown>
+  <!--职业-->
+  <dropdown name="ddl_profession" ddtype="static">
+    <item value="01" text="干部" />
+    <item value="02" text="工人" />
+    <item value="03" text="个体户" />
+    <item value="04" text="农民" />
+    <item value="05" text="退休" />
+    <item value="06" text="学生" />
+    <item value="07" text="其他" />
+  </dropdown>
+  <!--健康状况-->
+  <dropdown name="ddl_health" ddtype="static">
+    <item value="01" text="残疾" />
+    <item value="02" text="患病" />
+    <item value="03" text="健康" />
+    <item value="04" text="其他" />
+  </dropdown>
+  <!--家庭调查附件上传类型-->
+  <dropdown name="ddl_material_notes" ddtype="static">
+    <item value="01" text="《建档立卡扶贫对象证明》" />
+    <item value="02" text="《广西脱贫攻坚精准帮扶手册》" />
+    <item value="03" text="其他建档立卡贫困户证明材料" />
+    <item value="04" text="《城乡居民最低生活保障救助证》（简称低保证）" />
+    <item value="05" text="其他低保人员证明材料" />
+    <item value="06" text="民政部门出具的孤儿、父母双亡、单亲学生等相关证明" />
+    <item value="07" text="《残疾证》" />
+    <item value="08" text="《烈军属证》或相关部门出具的证明" />
+    <item value="09" text="重大疾病相关材料" />
+    <item value="10" text="国家助学贷款合同" />
+    <item value="11" text="户口簿人口明细表" />
+    <item value="12" text="《下岗证》或《失业人口登记表》" />
+    <item value="13" text="重大交通事故相关材料" />
+    <item value="14" text="受自然灾害影响相关材料" />
+    <item value="15" text="其他重大突发事件相关材料" />
+    <item value="16" text="其他材料" />
+  </dropdown>
+  <!--档次代码-->
+  <dropdown name="ddl_level_code" ddtype="static">
+    <item value="A" text="A" />
+    <item value="B" text="B" />
+    <item value="C" text="C" />
+    <item value="D" text="D" />
+  </dropdown>
+  <!--困难生认定意见-->
+  <dropdown name="ddl_dst_opinion" ddtype="static">
+    <item value="A" text="结合学生日常生活消费行为以及影响其家庭经济状况的相关情况，认定该生为家庭经济特别困难" />
+    <item value="B" text="结合学生日常生活消费行为以及影响其家庭经济状况的相关情况，认定该生为家庭经济困难" />
+    <item value="C" text="结合学生日常生活消费行为以及影响其家庭经济状况的相关情况，认定该生为家庭经济突然事件特殊困难" />
+    <item value="D" text="结合学生日常生活消费行为以及影响其家庭经济状况的相关情况，认定该生为不困难" />
+  </dropdown>
+  <!--困难生认定意见：-->
+  <dropdown name="ddl_agree" ddtype="static">
+    <item value="Y" text="同意" />
+    <item value="N" text="不同意" />
+  </dropdown>
+  <!--****************************************困难生认定 END****************************************-->
+
+  <!--****************************************个人中心 START****************************************-->
+  <!--学生信息修改：当前状态-->
+  <dropdown name="ddl_RET_CHANNEL_StuModi" ddtype="static">
+    <item value="A0000" text="预录入" />
+    <item value="A0010" text="申请中" />
+    <item value="D1000" text="辅导员待审" />
+    <item value="D4000" text="审批通过" />
+  </dropdown>
+  <!--****************************************个人中心 END****************************************-->
+
+  <!--****************************************问题反馈 START****************************************-->
+  <!--问题类型-->
+  <dropdown name="ddl_question_type" ddtype="static">
+    <item value="A" text="登录问题" />
+    <item value="B" text="业务申请问题" />
+    <item value="C" text="审批流程问题" />
+    <item value="Z" text="其他问题" />
+  </dropdown>
+  <!--****************************************问题反馈 END****************************************-->
+
+  <!--****************************************全国信息系统 START****************************************-->
+  <!--奖助管理：导出类型-->
+  <dropdown name="ddl_jz_export_type" ddtype="static">
+    <item value="A" text="本专科国家奖学金" />
+    <item value="B" text="本专科国家助学金" />
+    <item value="C" text="本专科励志奖学金" />
+    <item value="D" text="研究生国家奖学金" />
+    <item value="E" text="研究生国家助学金" />
+    <item value="F" text="研究生学业奖学金" />
+    <item value="G" text="地方资助名单" />
+    <item value="H" text="社会资助名单" />
+    <item value="I" text="学校资助名单" />
+  </dropdown>
+  <!--****************************************全国信息系统 END****************************************-->
+
+  <!--****************************************学费补偿贷款代偿管理 START****************************************-->
+  <!--项目类型-->
+  <dropdown name="ddl_makyup_project_type" ddtype="static">
+    <item value="A" text="边远地区基层就业学费补偿贷款代偿" />
+    <item value="B" text="应征入伍服义务兵役学费补偿贷款代偿" />
+    <item value="C" text="退役士兵学费资助" />
+  </dropdown>
+  <!--资格类型-->
+  <dropdown name="ddl_makyup_qualif_type" ddtype="static">
+    <item value="A" text="服义务兵役" />
+    <item value="B" text="直招士官" />
+    <item value="C" text="退役士兵资助" />
+    <item value="D" text="退役复学" />
+  </dropdown>
+  <!--学费补偿贷款代偿项目-->
+  <dropdown name="ddl_makyup_project" ddtype="sql">
+    <sql ValueMember="SEQ_NO" DisplayMember="MAKEUP_NAME">
+      SELECT SEQ_NO,MAKEUP_NAME FROM MAKEUP_PROJECT_HEAD ORDER BY OP_TIME DESC
+    </sql>
+  </dropdown>
+  <!--****************************************学费补偿贷款代偿管理 END****************************************-->
+</dropdowns>

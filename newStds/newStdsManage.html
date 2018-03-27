@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>新生录入管理</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+			<link rel="stylesheet" href="../common/css/AdminLTE.min.css" />
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="../common/css/skins/_all-skins.min.css" />
+	  	<!-- daterange picker -->
+  		<link rel="stylesheet" href="../common/plugins/daterangepicker/daterangepicker.css" />
+  		<!-- DataTables -->
+  		<link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css" />
+			<link rel="stylesheet" href="../common/plugins/datatables/dataTables.responsive.css" />
+  		<!-- iCheck for checkboxes and radio inputs -->
+  		<link rel="stylesheet" href="../common/plugins/iCheck/all.css" />
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="../common/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		td, th{
+	  			max-width: 500px;
+	  		}
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  		@media only screen and (min-width: 100px) and (max-width: 480px) {
+	  			.box-header > .box-tools{
+	  				position: relative;
+	  				margin-left: 10px;
+	  			}
+					.hidden-480 {
+					    display: none!important;
+					}
+	  		}
+	  	</style>
+	</head>
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+	  		<!-- S Master -->
+	  		<!-- S content -->
+	  		<div class="content-wrapper">
+				<!-- Content Header -->
+			    <section class="content-header">
+			      	<h1>
+			        	新生录入管理<!--<small>preview of tables</small>-->
+			      	</h1>
+			      	<ol class="breadcrumb">
+				        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+				        <li><a href="#">新生管理</a></li>
+				        <!--<li><a href="#">综合成绩管理</a></li>-->
+				        <li class="active">新生录入管理</li>
+			      	</ol>
+			    </section>
+
+			    <!-- Main content -->
+			    <section class="content" id="content">
+			    	<div class="row">
+				        <div class="col-xs-12">
+				        	<div id="alertDiv"></div>
+				          	<!-- /.box -->
+							<div class="box box-info">
+								<div class="box-header">
+									<h3 class="box-title">新生信息管理</h3>
+									<div class="box-tools">
+										<div class="input-group input-group-sm" style="width: 114px;">
+											<div class="input-group-btn">
+												<button type="button" class="btn btn-primary btn-xs btn-number" style="margin-left: 6px;">编制学号</button>
+												<button type="button" class="btn btn-primary btn-xs btn-add" style="margin-left: 6px;">新增</button>
+												<button id="dataEnter" style="margin-left: 6px;" type="button" class="btn btn-primary btn-xs btn-enter">导入</button>									</div>
+										</div>
+									</div>
+								</div>
+								<div class="box-body">
+									<table id="dataTable1" class="table table-bordered table-striped table-hover">
+										<thead>
+									        <tr>
+									        	<th name="checkAll">
+									        		<input type="checkbox" value="" id="checkAll">
+									        	</th>
+									            <th name="id">id</th>
+									            <th name="name">name</th>
+									            <th name="sex">sex</th>
+									            <th name="birthday">birthday</th>
+									            <th name="phone">phone</th>
+												<th name="id_card">id card</th>
+												<th name="address">address</th>
+												<th name="college">college</th>
+												<th name="major">major</th>
+												<th>operate</th>
+									        </tr>
+					                	</thead>
+								        <tbody>
+									        <tr>
+									        	<td>
+									        		<input type="checkbox" name="check" value="">
+									        	</td>
+									        	<td>1</td>
+									            <td>Trident</td>
+									            <td>man</td>
+									            <td>1990-12-05</td>
+									            <td>1223444441</td>
+									            <td>451223444441</td>
+									            <td>Win 95+</td>
+									            <td>4</td>
+									            <td>X</td>
+												<td><button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button><button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button></td>
+									        </tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /.box -->
+
+				        </div>
+				    </div>
+			    </section>
+
+
+	  		</div>
+	  		<!-- E content -->
+		</div>
+
+		<!--<div class="modal" id="dataModal">
+				<div class="modal-dialog">
+					<form action="#" method="post" name="form" class="modal-content form-horizontal">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+								<h4 class="modal-title">新生录入</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+								<input name="id" type="hidden" class="form-control" placeholder="id。。" value="" />
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-4"><label class="control-label">姓名：</label></div>
+										<div class="col-sm-8">
+											<input name="name" type="text" class="form-control" placeholder="姓名。。" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-3"><label class="control-label">性别：</label></div>
+										<div class="col-sm-9">
+											<input name="sex" type="text" class="form-control" placeholder="性别。。" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-4"><label class="control-label">出生年月：</label></div>
+										<div class="col-sm-8">
+											<input name="birthday" type="text" class="form-control" placeholder="生日。。" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-3"><label class="control-label">手机：</label></div>
+										<div class="col-sm-9">
+											<input name="phone" type="text" class="form-control" placeholder="手机号码。。" />
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-8">
+									<div class="form-group">
+										<div class="col-sm-3"><label class="control-label">身份证：</label></div>
+										<div class="col-sm-9">
+											<input name="id_card" type="text" class="form-control" placeholder="身份证号码。。" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="col-sm-2"><label class="control-label">地址：</label></div>
+										<div class="col-sm-10">
+											<input name="address" type="text" class="form-control" placeholder="联系地址。。" />
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-4"><label class="control-label">学院：</label></div>
+										<div class="col-sm-8">
+											<input name="college" type="text" class="form-control" placeholder="学院。。" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-sm-3"><label class="control-label">专业：</label></div>
+										<div class="col-sm-9">
+											<input name="major" type="text" class="form-control" placeholder="专业。。" />
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+								<button type="submit" class="btn btn-primary btn-save">保存</button>
+							</div>
+					</form>
+				</div>
+		</div>-->
+
+
+        <div class="modal" id="enterModal">
+          	<div class="modal-dialog">
+	            <form action="#" method="post" name="form" class="modal-content">
+	              	<div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                  	<span aria-hidden="true">×</span></button>
+		                <h4 class="modal-title">学生信息批量导入（附表）</h4>
+	              	</div>
+	              	<div class="modal-body">
+	                	<div class="form-group">
+		                	<label for="InputFile">选择文件：</label>
+		                	<input id="InputFile" type="file" name="file" multiple="multiple" />
+
+		                	<p class="help-block">新生信息批量导入；上传excel文件；</p>
+		                </div>
+	              	</div>
+		              	<div class="modal-footer">
+		                	<button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+		                	<button type="submit" class="btn btn-primary btn-save">提交</button>
+		              	</div>
+	            </form>
+	            <!-- /.modal-content -->
+          	</div>
+          	<!-- /.modal-dialog -->
+        </div>
+
+        <!--<div class="modal modal-warning" id="delModal">
+          <div class="modal-dialog">
+          	<form action="#" method="post" name="form" class="modal-content form-horizontal">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+								</button>
+                <h4 class="modal-title">删除</h4>
+              </div>
+              <div class="modal-body">
+                <p>确定要删除该信息？</p>
+                <input type="hidden" name="id" value="" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-outline">确定</button>
+              </div>
+            </form>
+          </div>
+        </div>-->
+
+		<!-- jQuery 2.2.3 -->
+		<script src="../common/js/jquery/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="../common/js/app.min.js"></script>
+		<!-- date-range-picker -->
+		<script src="../common/js/moment/moment.min.js"></script>
+		<!-- plugins -->
+		<script src="../common/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- DataTables -->
+		<!-- iCheck 1.0.1 -->
+		<script src="../common/plugins/iCheck/icheck.min.js"></script>
+		<script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="../common/plugins/datatables/dataTables.responsive.js"></script>
+		<script src="../common/js/common.js"></script>
+		<script src="./js/stdManage.js"></script>
+		<script type="text/javascript">
+			var jsType = "commonTable";
+			//
+			var grid_data = [
+    				{id:"1",name:"Desktop Computer",sex:"note",birthday:"2007-12-03",phone:"11231",  id_card:"1269988",address:"Yes",college:"FedEx",  major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"2",name:"Laptop",sex:"Long text ",birthday:"2007-12-03", phone:"11231", id_card:"1269988",address:"Yes",college:"InTime", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"3",name:"LCD Monitor",sex:"note3",address:"Yes",college:"TNT",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"4",name:"Speakers",sex:"note",address:"No",college:"ARAMEX",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"5",name:"Laser Printer",sex:"note2",address:"Yes",college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"6",name:"Play Station",sex:"note3",address:"No", college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"7",name:"Mobile Telephone",sex:"note",address:"Yes",college:"ARAMEX",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"8",name:"Server",sex:"note2",address:"Yes",college:"TNT",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"9",name:"Matrix Printer",sex:"note3",address:"No", college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"10",name:"Desktop Computer",sex:"note",address:"Yes",college:"FedEx", birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"11",name:"Laptop",sex:"Long text ",address:"Yes",college:"InTime",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"12",name:"LCD Monitor",sex:"note3",address:"Yes",college:"TNT",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"13",name:"Speakers",sex:"note",address:"No",college:"ARAMEX",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"14",name:"Laser Printer",sex:"note2",address:"Yes",college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"15",name:"Play Station",sex:"note3",address:"No", college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"16",name:"Mobile Telephone",sex:"note",address:"Yes",college:"ARAMEX",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"17",name:"Server",sex:"note2",address:"Yes",college:"TNT",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"18",name:"Matrix Printer",sex:"note3",address:"No", college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"19",name:"Matrix Printer",sex:"note3",address:"No", college:"FedEx",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"20",name:"Desktop Computer",sex:"note",address:"Yes",college:"FedEx", birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"21",name:"Laptop",sex:"Long text ",address:"Yes",college:"InTime",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"22",name:"LCD Monitor",sex:"note3",address:"Yes",college:"TNT",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'},
+    				{id:"23",name:"Speakers",sex:"note",address:"No",college:"ARAMEX",birthday:"2007-12-03", phone:"11231", id_card:"1269988", major:'null', check:'<input type="checkbox" name="check" value="">'}
+    		];
+
+    		var buildData = function(data, type){
+		        if(type == 'operate'){
+		          var _operateBtn = '<button type="button" class="btn btn-block btn-primary btn-xs btn-edit">编辑</button><button type="button" class="btn btn-block btn-warning btn-xs btn-del">删除</button>';
+		          for (var i = 0; i < data.length; i++) {
+		            // grid_data[i]['']
+		            data[i]['operate'] = _operateBtn;
+		          }
+		        }
+		        return data;
+		    };
+			var columns = [
+					{ "data": 'check', },
+		    		{ "data": 'id', 'form': 'hide'},
+			      	{ "data": 'name', 'label': '2', 'form': '10', 'parent': '6', 'type': 'input', 'pre':"xxxx"},
+			      	{ "data": 'sex', 'label': '2', 'form': '10', 'parent': '6', 'type': 'input' },
+			      	{ "data": 'birthday', 'label': '2', 'form': '10', 'parent': '6', 'type': 'select', 'options':[
+			      		{'key':"?", 'value':'111'},
+			      	]},
+			      	{ "data": 'phone', 'label': '2', 'form': '10', 'parent': '6', 'type': 'checkbox' },
+			      	{ "data": 'id_card', 'label': '2', 'form': '10', 'parent': '6', 'type': 'input' },
+			      	{ "data": 'address', 'label': '2', 'form': '10', 'parent': '12', 'type': 'textarea', 'pre':"xxxx" },
+			      	{ "data": 'college', 'label': '2', 'form': '10', 'parent': '10', 'type':"file"},
+			      	{ "data": 'major', 'label': '2', 'form': '10', 'parent': '12' },
+			      	{ "data": 'operate' },
+				]
+			var columns1 = [
+		    		{ "data": 'id', 'form': 'hide'},
+			      	{ "data": 'phone', 'label': '2', 'form': '10', 'parent': '6', 'type': 'checkbox' },
+			      	{ "data": 'id_card', 'label': '2', 'form': '10', 'parent': '6', 'type': 'input' },
+			      	{ "data": 'address', 'label': '2', 'form': '10', 'parent': '12', 'type': 'textarea', 'pre':"xxxx" },
+			      	{ "data": 'college', 'label': '2', 'form': '10', 'parent': '10', 'type':"file"},
+			      	{ "data": 'major', 'label': '2', 'form': '10', 'parent': '12' },
+			]
+      	var tableConfig = {
+		        'table': '#dataTable1',
+		        'config':{
+		        	"data": buildData(grid_data, 'operate'),//数据
+		          "columns": columns,//栏目
+
+		        }
+		    };
+		    var modalConfig = {//弹出层配置
+		    	"modal":      	"#dataModal",
+		    	"delModal":   	"#delModal",
+		    	"delCol":		["id",],
+		        "delAction":	'xxxy',
+		        "modalAction":	'aaww',
+//		        "submitType": 	"form",
+				"modalSuccess":function(){
+					console.log('modal call back');
+				},
+		        "struct":		[
+		        	{'columns': columns},
+//		        	{'tabs':"y1x2", 'columns': columns},
+//		        	{'tabs':"ss", 'columns': columns1},
+		        ],
+		    };
+		    var EventConfig = {//事件配置
+		        "content":    "#content",
+		        "table":      "#dataTable1",
+		        "modal":      "#dataModal",
+		        "addBtn":     ".btn-add",
+		        "editBtn":    ".btn-edit",
+		        "delModal":   "#delModal",
+		        "delBtn":     ".btn-del",
+//		        "submitType": "form",
+		        "columns":		columns,
+		        "buildModal":	true,
+		        "delCol":		["id",],
+//		        "delAction":	'xxxy',
+//		        "modalAction":	'aaww',
+		    };
+
+//		    easyAlert.timeShow({
+//		    	'type':	'warn',
+//		    	'content':	'1662kdhglaksdjhlas',
+//		    	'duration':	3,
+//
+//		    });
+//		    easyAlert.locationShow({
+//		    	'type':	'warn',
+//		    	'content':	'wpwpy的。让人本科',
+//		    	'duration':	3,
+//		    	'to':	'#alertDiv',
+//
+//		    });
+// 			easyConfirm.locationShow({
+// //				'type':	'warn',
+// 		    	'content':	'wpwpy的。让人本科',
+// 		    	'title':	'say something',
+// //		    	'duration':	3,
+// //		    	'to':	'#alertDiv',
+// 				'callback':	function(){
+// 					console.log('some thing call back');
+// 				},
+// 			});
+		</script>
+	</body>
+</html>

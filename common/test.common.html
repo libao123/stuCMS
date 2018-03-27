@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <title>welcome</title>
+  	<!-- Tell the browser to be responsive to screen width -->
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+		<link rel="stylesheet" href="css/AdminLTE.min.css">
+		<!--<link rel="stylesheet" href="plugins/Hui/Hui-iconfont/1.0.7/iconfont.css">
+		<link rel="stylesheet" href="plugins/Hui/h-ui/css/H-ui.min.css">
+		<link rel="stylesheet" href="plugins/Hui/h-ui.admin/css/H-ui.admin.css">-->
+	  	<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+	  	<link rel="stylesheet" href="css/skins/_all-skins.min.css">
+      <!-- jQuery 2.2.3 -->
+      <script src="js/jquery/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="js/bootstrap/js/bootstrap.min.js"></script>
+      <script src="js/app.min.js"></script>
+      <script src="js/common.js"></script>
+		<!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+  </head>
+  <body>
+    <div class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-primary">
+            <!-- <div class="box-header with-border">
+                  <h3 class="box-title">快速指引</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+              </div> -->
+              <div class="box-body" id="quickEnter">
+                <!-- <a class="btn btn-app" id="btnNotice" href="javascript:void(0);">
+                    <i class="fa fa-edit"></i>弹出公告
+                </a> -->
+                <form action="#" method="post" name="form" class="modal-content form-horizontal" id="testForm" onsubmit="">
+  	              	<div class="modal-header">
+  		                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  		                  	<span aria-hidden="true">×</span>
+                      </button>
+  		                <h4 class="modal-title">公告通知管理</h4>
+  	              	</div>
+  	              	<div class="modal-body">
+  						        <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">信息类型</label>
+  		                  	<div class="col-sm-10">
+  		                    	<select class="form-control" name="NOTICE_TYPE">
+  				                    <option value="1">通知公共</option>
+  				                    <option value="2">消息</option>
+  	                  			</select>
+  		                  	</div>
+  		                </div>
+  		                <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">标题</label>
+  		                  	<div class="col-sm-10">
+  		                    	<input name="TITLE" type="text" class="form-control" placeholder="" />
+  		                  	</div>
+  		                </div>
+  		                <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">副标题</label>
+  		                  	<div class="col-sm-10">
+  		                    	<input name="SUB_TITLE" type="text" class="form-control" placeholder="" />
+  		                  	</div>
+  		                </div>
+  		                <div class="form-group">
+  			                <label class="col-sm-2 control-label">开始时间</label>
+  			                <div class="col-sm-4">
+  				            	<input type="text" class="form-control timeSingle" name="START_TIME" />
+  			                </div>
+
+  			                <label class="col-sm-1 control-label">至</label>
+  			                <div class="col-sm-5">
+  				            	<input type="text" class="form-control timeSingle" name="END_TIME" />
+  			                </div>
+  		            	  </div>
+  		            	  <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">查阅角色</label>
+  		                  	<div class="col-sm-10">
+  		                    	<input name="ROLEID" type="text" class="form-control" placeholder="" />
+  		                  	</div>
+  		                </div>
+  		                <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">发布内容</label>
+  		                  	<div class="col-sm-10">
+  		                    	<textarea class="form-control ckEditor" name="ck_editor" id="editor1" rows="4" ></textarea>
+  		                  	</div>
+  		                </div>
+  		                <div class="form-group">
+  		                  	<label class="col-sm-2 control-label">发布人</label>
+  		                  	<div class="col-sm-4" style="margin-bottom: 10px;">
+  		                    	<input name="SEND_NAME" type="text" class="form-control" placeholder="" />
+  		                  	</div>
+  		                  	<label class="col-sm-2 control-label">发布时间</label>
+  		                  	<div class="col-sm-4">
+  		                    	<input name="SEND_TIME" type="text" class="form-control timeSingle" placeholder="" />
+  		                  	</div>
+  		                </div>
+  	              	</div>
+  		              <div class="modal-footer">
+  		                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                      <button type="button" id="resetBtn" class="btn btn-default pull-left">重置</button>
+  		             	  <button type="button" class="btn btn-primary btn-save">保存</button>
+  		             	</div>
+  	            </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+      var a = PageValueControl.init(
+        "testForm"
+      );
+      a.setFormData({
+        "TITLE":"哦对了，球场",//name 和 value要一一对应
+        "SUB_TITLE":"的从是恩恩",
+      });
+      // a.disableForm({
+      //   "TITLE":true,//name 和 value要一一对应
+      //   "NOTICE_TYPE":true,
+      //   "END_TIME":false,
+      // });
+      a.disableAll();
+      $("#resetBtn").on("click", function(){
+        a.reset();
+      });
+    });
+    </script>
+  </body>
+</html>

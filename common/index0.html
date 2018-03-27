@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>welcome</title>
+  	<!-- Tell the browser to be responsive to screen width -->
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+  		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css">
+  		<!-- Font Awesome -->
+  		<link rel="stylesheet" href="../common/css/font-awesome.min.css" />
+  		<!-- Ionicons -->
+  		<link rel="stylesheet" href="../common/css/ionicons.min.css" />
+  		<!-- Theme style -->
+		  <link rel="stylesheet" href="css/AdminLTE.min.css">
+	  	<link rel="stylesheet" href="css/skins/_all-skins.min.css">
+      <link rel="stylesheet" href="../common/plugins/datatables/dataTables.bootstrap.css" />
+      <link rel="stylesheet" href="../common/plugins/datatables/dataTables.responsive.css" />
+      <link rel="stylesheet" href="../common/plugins/iCheck/all.css" />
+      <link rel="stylesheet" href="../common/css/common.css" />
+		  <!-- bootstrap wysihtml5 - text editor -->
+  		<!--<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+	  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  	<!--[if lt IE 9]>
+	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  	<![endif]-->
+	  	<style type="text/css">
+	  		.content-wrapper{
+	  			position: relative;
+	  			margin-left: auto;
+	  		}
+	  	</style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>后台首页<!--<small>Version 2.0</small>--></h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      	<!-- Info boxes -->
+      	<div class="row">
+	      	<div class="col-xs-12">
+	      		<div class="box box-primary">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">快速指引</h3>
+              			<div class="box-tools pull-right">
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body" id="quickEnter">
+					      </div>
+	      		</div>
+      		</div>
+        </div>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="box box-danger">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">工作通知</h3>
+              			<div class="box-tools pull-right">
+                      <a href="#" class="btn btn-box-tool">更多</a>
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body no-padding" id="wordNotice">
+					      </div>
+	      		</div>
+          </div>
+          <div class="col-md-5">
+            <div class="box box-info">
+	      			<div class="box-header with-border">
+              			<h3 class="box-title">近期公告</h3>
+              			<div class="box-tools pull-right">
+                      <a href="#" class="btn btn-box-tool">更多</a>
+                			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              			</div>
+            		</div>
+            		<div class="box-body no-padding" id="nearNotice">
+					      </div>
+	      		</div>
+          </div>
+      	</div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="box box-success">
+	      			<div class="box-header with-border">
+              	<h3 class="box-title">政策解读</h3>
+              	<div class="box-tools pull-right">
+                  <a href="#" class="btn btn-box-tool">更多</a>
+                	<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              	</div>
+            	</div>
+            	<div class="box-body no-padding" id="policyNotice">
+					    </div>
+	      		</div>
+          </div>
+          <div class="col-md-7">
+            <div class="box box-warning">
+	      			<div class="box-header with-border">
+              	<h3 class="box-title">资助动态</h3>
+              	<div class="box-tools pull-right">
+                  <a href="#" class="btn btn-box-tool">更多</a>
+                	<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              	</div>
+            	</div>
+            	<div class="box-body no-padding" id="fundingTrends">
+					    </div>
+	      		</div>
+          </div>
+        </div>
+        <div class="row" style="height:377px;">
+          <div class="col-md-12">
+            <div class="box box-danger">
+              <table id="tablelist" class="table table-bordered table-striped table-hover">
+    				  </table>
+	      		</div>
+          </div>
+        </div>
+        <div class="row" style="height:377px;">
+          <div class="col-md-12">
+            <div class="box">
+              <table id="tablelist1" class="table table-bordered table-striped table-hover">
+    				  </table>
+	      		</div>
+          </div>
+        </div>
+      	<!-- <div class="row">
+      		<div class="col-md-8">
+      			<div class="box box-primary">
+      				<div class="box-header">
+				        <h3 class="box-title">近期操作</h3>
+				        <div class="box-tools pull-right">
+		              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+	              </div>
+				      </div>
+				      <div class="box-body table-responsive" id="indexRangeDay">
+				      </div>
+      			</div>
+      		</div>
+      		<div class="col-md-4">
+      			<div class="box box-info">
+              <div class="box-header">
+                <h3 class="box-title">个人消息</h3>
+                <div class="box-tools pull-right">
+		              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+	              </div>
+              </div>
+              <div class="box-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <i class="fa fa-comment fa-fw"></i> 2 新消息
+                    <span class="pull-right text-muted small"></span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 新好友
+                    <span class="pull-right text-muted small"></span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <i class="fa fa-envelope fa-fw"></i> 2 发送信息
+                    <span class="pull-right text-muted small"></span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <i class="fa fa-tasks fa-fw"></i> 4 新任务
+                    <span class="pull-right text-muted small"></span>
+                  </a>
+                </div>
+                <a href="#" class="btn btn-default btn-block">查看全部</a>
+              </div>
+            </div>
+                <div class="box box-danger">
+	                <div class="box-header with-border">
+	                  	<h3 class="box-title">最后访问用户</h3>
+
+	                  	<div class="box-tools pull-right">
+		                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+	                  	</div>
+	                </div>
+	                <div class="box-body no-padding" id="indexLoginLog">
+	                </div>
+	            </div>
+      		</div>
+      	</div> -->
+      	<!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- notice -->
+<!-- <div class="modal" id="noitceModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">公告消息</h4>
+      </div>
+      <div class="modal-body">
+        <div class="box box-default" style="border:none;">
+          <div class="box-body no-padding" id="dialogNotice"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- article -->
+
+
+</div>
+<!-- ./wrapper -->
+
+	<!-- jQuery 2.2.3 -->
+	<script src="js/jquery/jquery-2.2.3.min.js"></script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="js/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../common/plugins/iCheck/icheck.min.js"></script>
+  <script src="../common/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../common/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script src="../common/plugins/datatables/dataTables.responsive.js"></script>
+	<!-- AdminLTE App -->
+  <script src="js/app.min.js"></script>
+	<script src="js/demoTabs.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/datatables.init.js"></script>
+  <script src="js/modal.control.js"></script>
+  <script type="text/javascript">
+  // <li><a href="#"><i class="fa fa-inbox"></i>啥啥啥，又推出了新的政策</a></li>
+  /*<li>
+    <img src="../common/images/user2-160x160.jpg" alt="User Image">
+    <a class="users-list-name" href="#">Alexander Pierce</a>
+    <span class="users-list-date">Today</span>
+  </li>*/
+    $(function(){
+      var quickData = [
+        {'url':'../newStds/newStdsManage.html', 'str':'新生录入', 'icon':'fa-coffee'},
+        {'url':'../user/person/infoBase.html', 'str':'个人信息', 'icon':''},
+      ];
+      quickEnter.init('#quickEnter', quickData);
+
+      // var iNoticeData = [
+      //   {'url':'javascript:void(0);', 'title':'啥啥啥，又推出了新的政策'},
+      //   {'url':'#', 'title':'啥啥啥，又推出了新的政策'},
+      //   {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+      // ];
+      // indexNotice.init('#indexNotice', iNoticeData);
+
+      // var loginLogData = [
+      //   {'imgurl':'../common/images/user2-160x160.jpg', 'link':'#', 'name':'kyou', 'date':'2017-06-21'},
+      //   {'imgurl':'../common/images/user2-160x160.jpg', 'link':'#', 'name':'tomoyo', 'date':'2017-06-20'},
+      // ];
+      // indexLoginLog.init('#indexLoginLog', loginLogData);
+      //
+      // var rangeData = [
+    	// 	{'date':'2017-06-11', 'events':[
+    	// 		{'user':'kyou', 'title':'有你的邮件', 'url':'#', 'time':'5分钟前', 'msg':'XXXXxxxx<br />112556'},
+    	// 		{'user':'kyou', 'title':'修改操作', 'url':'#', 'time':'25分钟前', 'msg':'Xyyyyxx@112556', 'btns':[{'type':'view', 'link':'#'}]},
+    	// 	]},
+      // ];
+      // indexRangeDay.init('#indexRangeDay', rangeData);
+
+      /*S new*/
+      // var iNoticeData = [
+      //   {'url':'javascript:void(0);', 'title':'啥啥啥，又推出了新的政策'},
+      //   {'url':'#', 'title':'啥啥啥，又推出了新的政策'},
+      //   {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+      // ];
+      var iNoticeData = {
+        modal:{
+          id:'wordModal',
+          title:"工作通知",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv/user/login', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.lamian.tv', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#wordNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'nearModal',
+          title:"近期公告",
+        },
+        attr:[
+          {'url':'http://www.lamian.tv/user/login', 'title':'又推出了新的政策'},
+          {'url':'http://www.aipai.com', 'title':'又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#nearNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'policyModal',
+          title:"政策解读",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv/user/login', 'title':'工作通知'},
+          {'url':'http://www.baidu.com', 'title':'啥啥啥，工作通知'},
+          {'url':'http://www.baidu.com', 'title':'工作通知新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#policyNotice', iNoticeData);
+      var iNoticeData = {
+        modal:{
+          id:'wordModal',
+          title:"资助动态",
+        },
+        attr:[
+          {'url':'http://m.lamian.tv', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.163.com', 'title':'啥啥啥，又推出了新的政策'},
+          {'url':'http://www.baidu.com', 'title':'新鲜出炉的标题'},
+        ],
+      }
+      indexNotice.init('#fundingTrends', iNoticeData);
+
+      /*E new*/
+
+        /*S dialog notice*/
+        // var noticeData = [
+        //   {'url':'#', 'title':'弹框通告1'},
+        //   {'url':'#', 'title':'弹框通告2'},
+        //   {'url':'http://www.lamian.tv', 'title':'弹框通告3'},
+        //   {'url':'http://www.baidu.com', 'title':'弹框通告4'},
+        //   {'url':'http://www.baidu.com', 'title':'弹框通告5'}
+        // ];
+        // indexNotice.init('#dialogNotice', noticeData);
+        // $("#btnNotice").on("click", function(){
+        //   $("#noitceModal").modal();
+        // });
+        /*E dialog notice*/
+        //配置表格列
+        tablePackageMany.filed = [
+          {
+              "data": "OID",
+              "createdCell": function (nTd, sData, oData, iRow, iCol) {
+                  $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
+              },
+              "head": "checkbox", "id": "checkAll"
+          },
+          { "data": "DOC_TYPE", "head": "待办事项", "type": "td-keep" },
+          { "data": "RET_CHANNEL", "head": "状态", "type": "td-keep" }
+        ];
+        //配置表格
+        var a = tablePackageMany.createOne({
+            //可ajax ing
+            hasAjax: {
+                // type: "server",
+                // url: "?optype=getlist",
+                // method: "POST"
+                type: "client",
+                url: "../FunctionManage/json/long.json",
+                method: "GET"
+            },
+            //表格参数
+            attrs: {
+                tableId: "tablelist", //表格id
+                buttonId: "buttonId", //拓展按钮区域id
+                tableTitle: "待办事项",
+                checkAllId: "checkAll", //全选id
+                tableConfig: {
+                    'pageLength': 5, //每页显示个数，默认10条
+                    'selectSingle': true, //是否单选，默认为true
+                    'lengthChange': false//用户改变分页
+                }
+            },
+            hasBtns: ["reload",
+            { type: "userDefined", id: "history", title: "审核流程跟踪", className: "btn-primary", attr: { "data-action": "", "data-other": "nothing"} }
+            ], //需要的按钮
+        });
+        //
+        tablePackageMany.filed = [
+          {
+              "data": "OID",
+              "createdCell": function (nTd, sData, oData, iRow, iCol) {
+                  $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
+              },
+              "head": "checkbox", "id": "checkAll"
+          },
+          { "data": "DOC_TYPE", "head": "已办事项", "type": "td-keep" },
+          { "data": "RET_CHANNEL", "head": "状态", "type": "td-keep" }
+        ];
+        //配置表格
+        var b = tablePackageMany.createOne({
+            //可ajax ing
+            hasAjax: {
+                // type: "server",
+                // url: "?optype=getlist",
+                // method: "POST"
+                type: "client",
+                url: "../FunctionManage/json/long.json",
+                method: "GET"
+            },
+            //表格参数
+            attrs: {
+                tableId: "tablelist1", //表格id
+                buttonId: "buttonId1", //拓展按钮区域id
+                tableTitle: "已办事项",
+                checkAllId: "checkAll", //全选id
+                tableConfig: {
+                    'pageLength': 5, //每页显示个数，默认10条
+                    'selectSingle': true, //是否单选，默认为true
+                    'lengthChange': false//用户改变分页
+                }
+            },
+            hasBtns: ["reload",
+            { type: "userDefined", id: "history", title: "审核流程跟踪", className: "btn-primary", attr: { "data-action": "", "data-other": "nothing"} }
+            ], //需要的按钮
+        });
+
+        /* height? */
+        window.onload = function(){
+      		var _pageH = $(document).height();
+      		if (window.parent) {
+      			//console.log(window.parent);
+      			//$('#id', window.parent.document)
+      			var _parentIfm = $('#iframe_box', window.parent.document);
+      			if (_parentIfm.height() < _pageH) {
+        			_parentIfm.css({'height':_pageH+5,});
+      			} else{
+
+      			}
+      			console.log(_parentIfm.height());
+      		}
+      	}
+
+    });
+  </script>
+</body>
+</html>
