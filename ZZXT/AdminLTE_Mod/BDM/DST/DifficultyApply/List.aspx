@@ -1057,17 +1057,15 @@
         </div>
     </div>
     <!-- 编辑界面 -->
-    <div class="modal" id="tableModal">
-        <div class="modal-dialog" style="width: 60%;">
-            <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal form-inline"
-            onsubmit="return false;">
+    <div class="modal fade" id="tableModal">
+        <div class="modal-dialog modal-dw70">
+            <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal" onsubmit="return false;">
             <input type="hidden" id="OID" name="OID" />
             <input type="hidden" id="SEQ_NO" name="SEQ_NO" />
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">
-                    困难生申请</h4>
+                <h4 class="modal-title">困难生申请</h4>
             </div>
             <div class="modal-body">
                 <div class="nav-tabs-custom" style="box-shadow: none; margin-bottom: 0px;">
@@ -1075,126 +1073,105 @@
                         <li class="active"><a href="#tab_1" data-toggle="tab" id="tabli1">基本信息</a></li>
                         <li><a href="#tab_2" data-toggle="tab">家庭成员情况</a></li>
                     </ul>
-                    <div class="tab-content row">
+                    <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     学号<span style="color: Red;">*</span></label>
-                                <div class="col-sm-8">
+                                <div class="col-sm-4">
                                     <input name="NUMBER" id="NUMBER" type="text" class="form-control" placeholder=""
                                         readonly style="padding: 0; margin: 0;" />
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     姓名</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="NAME">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="NAME">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     性别</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="SEX">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="SEX">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     出生年月</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="BIRTH_DATE">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="BIRTH_DATE">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     民族</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="NATION">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="NATION">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     身份证号码</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="IDCARDNO">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="IDCARDNO">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     政治面貌</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="POLISTATUS">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="POLISTATUS">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     院系</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="COLLEGE">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="COLLEGE">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     专业</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="MAJOR">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="MAJOR">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     班级</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="CLASS">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="CLASS">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     在校联系电话</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="TELEPHONE">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="TELEPHONE">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     家庭电话</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="HOME">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="HOME">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-12">
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">
                                     家庭住址</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control-static" id="HOME_ADDRESS">
-                                        -</p>
+                                    <p class="form-control-static" id="HOME_ADDRESS">-</p>
                                 </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
                                     家庭年总收入</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="ANNUAL_INCOME">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="ANNUAL_INCOME">-</p>
                                 </div>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label class="col-sm-4 control-label">
+                            
+                                <label class="col-sm-2 control-label">
                                     家庭人均月收入</label>
-                                <div class="col-sm-8">
-                                    <p class="form-control-static" id="MONTHLY_INCOME">
-                                        -</p>
+                                <div class="col-sm-4">
+                                    <p class="form-control-static" id="MONTHLY_INCOME">-</p>
                                 </div>
                             </div>
                             <div class="box-header with-border" id="div_title_APPLY_REASON">
@@ -1202,22 +1179,20 @@
                                     <label id="lab_txt_APPLY_REASON">
                                         申请认定家庭经济困难理由</label><label id="lab_showmsg_APPLY_REASON"></label></h3>
                             </div>
-                            <div class="form-group col-sm-12">
-                                <%--<label class="col-sm-2 control-label">
-                                    申请认定家庭经济困难理由</label>--%>
+                            <div class="form-group">
                                 <div class="col-sm-12">
                                     <textarea name="APPLY_REASON" id="APPLY_REASON" rows="3" maxlength="300" class="form-control"
                                         placeholder="对本人的家庭情况、成员伤病情况、收入来源情况、突发意外事件、欠债情况等进行详细描述，字数限制在100-300个字"></textarea>
                                 </div>
                             </div>
                             <section class="content" id="content_grant">
-									<div class="row">
-										<div class="col-xs-12">
-											<table id="grantlist" class="table table-bordered table-striped table-hover">
-											</table>
-										</div>
-									</div>
-								</section>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <table id="grantlist" class="table table-bordered table-striped table-hover">
+                                  </table>
+                                </div>
+                              </div>
+                            </section>
                         </div>
                         <div class="tab-pane" id="tab_2">
                             <table id="memberlist" class="table table-bordered table-striped table-hover">
@@ -1238,8 +1213,8 @@
         </div>
     </div>
     <!-- 选择界面-->
-    <div class="modal" id="selectModal">
-        <div class="modal-dialog" style="width: 60%;">
+    <div class="modal fade" id="selectModal">
+        <div class="modal-dialog modal-dw70">
             <div class="row">
                 <div class="col-xs-12">
                     <div id="">
@@ -1253,20 +1228,19 @@
         </div>
     </div>
     <%-- 在校期间获何种奖励及资助情况编辑界面 开始 --%>
-    <div class="modal" id="grantModal">
-        <div class="modal-dialog" style="width: 60%;">
-            <form action="#" method="post" id="grant_edit" name="grant_edit" class="modal-content form-horizontal form-inline"
+    <div class="modal fade" id="grantModal">
+        <div class="modal-dialog modal-dw60">
+            <form action="#" method="post" id="grant_edit" name="grant_edit" class="modal-content form-horizontal"
             onsubmit="return false;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">
-                    奖励及资助情况</h4>
+                <h4 class="modal-title">奖励及资助情况</h4>
             </div>
             <div class="modal-body">
                 <input type="hidden" name="OID" id="GRANT_OID" />
-                <div class="row">
-                    <div class="form-group col-sm-12">
+                <!-- <div class="row"> -->
+                    <div class="form-group">
                         <label class="col-sm-3 control-label">
                             获奖学年<span style="color: Red;">*</span></label>
                         <div class="col-sm-9">
@@ -1275,7 +1249,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-sm-12">
+                    <div class="form-group">
                         <label class="col-sm-3 control-label">
                             获奖名称<span style="color: Red;">*</span></label>
                         <div class="col-sm-9">
@@ -1283,14 +1257,14 @@
                                 required />
                         </div>
                     </div>
-                    <div class="form-group col-sm-12">
+                    <div class="form-group">
                         <label class="col-sm-3 control-label">
                             获奖等级</label>
                         <div class="col-sm-9">
                             <input name="RANK" id="GRANT_RANK" type="text" class="form-control" placeholder="获奖等级" />
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-save" id="btnGrantSave">
@@ -1301,18 +1275,18 @@
             </form>
         </div>
     </div>
-    <div class="modal" id="idCardNoModal">
+    
+    <div class="modal fade" id="idCardNoModal">
         <div class="modal-dialog">
-            <form id="form_idCardNo" name="form_idCardNo" class="modal-content form-horizontal form-inline">
+            <form id="form_idCardNo" name="form_idCardNo" class="modal-content form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">
-                    修改身份证信息</h4>
+                <h4 class="modal-title">修改身份证信息</h4>
             </div>
-            <div class="modal-body row">
+            <div class="modal-body">
                 <input type="hidden" id="MEMBER_OID" name="OID" />
-                <div class="form-group col-sm-12">
+                <div class="form-group">
                     <label class="col-sm-4 control-label">
                         身份证号<span style="color: Red;">*</span></label>
                     <div class="col-sm-8">

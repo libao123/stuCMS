@@ -103,12 +103,12 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">
                             家庭经济调查开放时间<span style="color: Red;">*</span></label>
-                        <div class="col-sm-3" style="position: relative; z-index: 999">
+                        <div class="col-sm-3" style="position: relative; z-index: 9999">
                             <input type="text" name="FAMILY_START_TIME" id="FAMILY_START_TIME" class="form-control timeSingle" />
                         </div>
                         <label class="col-sm-1 control-label">
                             至</label>
-                        <div class="col-sm-3" style="position: relative; z-index: 999">
+                        <div class="col-sm-3" style="position: relative; z-index: 9999">
                             <input type="text" name="FAMILY_END_TIME" id="FAMILY_END_TIME" class="form-control timeSingle" />
                         </div>
                     </div>
@@ -126,12 +126,12 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">
                             困难生申请开放时间<span style="color: Red;">*</span></label>
-                        <div class="col-sm-3" style="position: relative; z-index: 999">
+                        <div class="col-sm-3" style="position: relative; z-index: 9999">
                             <input type="text" name="DECLARE_START_TIME" id="DECLARE_START_TIME" class="form-control timeSingle" />
                         </div>
                         <label class="col-sm-1 control-label">
                             至</label>
-                        <div class="col-sm-3" style="position: relative; z-index: 999">
+                        <div class="col-sm-3" style="position: relative; z-index: 9999">
                             <input type="text" name="DECLARE_END_TIME" id="DECLARE_END_TIME" class="form-control timeSingle" />
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">
                         有效时间</label>
-                    <div class="col-sm-4" style="position: relative; z-index: 999">
+                    <div class="col-sm-4" style="position: relative; z-index: 9999">
                         <input name="START_TIME" id="START_TIME" type="text" class="form-control datep" placeholder="有效起始时间" />
                     </div>
                 
