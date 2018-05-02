@@ -63,6 +63,7 @@
     <script type="text/javascript" src="/AdminLTE/common/js/common.js"></script>
     <script type="text/javascript" src="/AdminLTE/common/js/jtools.js"></script>
     <script type="text/javascript" src="/AdminLTE/common/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="/AdminLTE/common/plugins/laydate/laydate.js"></script>
     <style type="text/css">
         td, th
         {

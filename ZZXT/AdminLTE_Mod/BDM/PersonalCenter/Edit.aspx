@@ -109,10 +109,18 @@
                 return true;
             }
             SelectUtils.XY_ZY_Grade_ClassCodeChange("COLLEGE", "MAJOR", "EDULENTH", "CLASS", $("#COLLEGE").val(), $("#MAJOR").val(), $("#EDULENTH").val(), $("#CLASS").val());
-            $(".datep").datepicker({
+            /*$(".datep").datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 language: "zh-CN"
+            });*/
+
+            lay('.datep').each(function(inx, element){
+              //TODO 实例化 遍历
+              laydate.render({
+                elem: this,
+                trigger: 'click',
+              });
             });
             SetPageBtn();
             //---------单条审批  开始------------------

@@ -361,10 +361,17 @@
         function loadModalPageValidate() {
             ValidateUtils.setRequired("#form_del", "Fromdate", true, "起始删除时间必填");
             ValidateUtils.setRequired("#form_del", "toDATE", true, "截止删除时间必填");
-            $(".datep").datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true,
-                language: "zh-CN"
+            //$(".datep").datepicker({
+            //    format: 'yyyy-mm-dd',
+            //    autoclose: true,
+            //    language: "zh-CN"
+            //});
+            lay('.datep').each(function(inx, element){
+              //TODO 实例化 遍历
+              laydate.render({
+                elem: this,
+                trigger: 'click',
+              });
             });
         }
     </script>

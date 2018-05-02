@@ -22,10 +22,17 @@
             //----发布公告页----
             ValidateUtils.setRequired("#form_notice", "TITLE", true, "标题必填");
             //时间控件
-            $(".datep").datepicker({
+            /*$(".datep").datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 language: "zh-CN"
+            });*/
+            lay('.datep').each(function(inx, element){
+              //TODO 实例化 遍历
+              laydate.render({
+                elem: this,
+                trigger: 'click',
+              });
             });
             //编辑页form定义
             _form_edit = PageValueControl.init("form_edit");
@@ -196,7 +203,7 @@
                     <div class="col-sm-4" style="position: relative; z-index: 9999">
                         <input name="START_TIME" id="START_TIME" type="text" class="form-control datep" placeholder="有效起始时间" />
                     </div>
-                
+
                     <label class="col-sm-2 control-label">
                         至</label>
                     <div class="col-sm-4" style="position: relative; z-index: 9999">

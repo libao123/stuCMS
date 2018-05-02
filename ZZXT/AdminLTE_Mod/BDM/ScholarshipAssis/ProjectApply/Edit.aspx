@@ -34,10 +34,17 @@
             loadModalPageDataInit();
             loadModalPageValidate();
             //时间控件
-            $(".datep").datepicker({
+            /*$(".datep").datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 language: "zh-CN"
+            });*/
+            lay('.datep').each(function(inx, element){
+              //TODO 实例化 遍历
+              laydate.render({
+                elem: this,
+                trigger: 'click',
+              });
             });
         });
     </script>

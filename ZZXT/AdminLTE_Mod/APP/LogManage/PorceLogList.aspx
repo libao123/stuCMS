@@ -65,7 +65,7 @@
                         <input id="toDATE" name="toDATE" type="text" class="form-control datep" />
                     </div>
                 </div>
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-delete" id="btnDel">
@@ -135,10 +135,17 @@
         $(function () {
             ValidateUtils.setRequired("#form_edit", "Fromdate", true, "起始删除时间必填");
             ValidateUtils.setRequired("#form_edit", "toDATE", true, "截止删除时间必填");
-            $(".datep").datepicker({
+            /*$(".datep").datepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 language: "zh-CN"
+            });*/
+            lay('.datep').each(function(inx, element){
+              //TODO 实例化 遍历
+              laydate.render({
+                elem: this,
+                trigger: 'click',
+              });
             });
             //列表内容，以及按钮
             var _content = $("#content"),
