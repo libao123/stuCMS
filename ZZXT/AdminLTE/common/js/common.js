@@ -221,7 +221,7 @@ var easyConfirm = {
 				//d['class'] = undefined;
 				break;
 		}
-		var str = '<div class="Confirm_Div modal fade '+d['class']+'">'+
+		var str = '<div class="Confirm_Div modal fade '+d['class']+'" style="z-index:10000;">'+
         	'<div class="modal-dialog">'+
             '<div class="modal-content">'+
               '<div class="modal-header">'+
@@ -298,7 +298,7 @@ var bodyCallouts = {
 				break;
 		}
 		var str = "";
-		str += '<div class="callout '+d["class"]+'">\
+		str += '<div class="callout '+d["class"]+'" style="z-index:10000;">\
                 <h4>'+d["title"]+'</h4>\
                 <p>'+d["msg"]+'</p>\
               </div>';
