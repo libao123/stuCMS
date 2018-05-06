@@ -97,6 +97,9 @@ var easyAlert = {
 		if(d['duration']){
 			setTimeout(function(){
 				_t.modal('hide');
+				setTimeout(function(){
+					_t.remove();
+				}, 1000);
 			}, parseInt(d['duration'])*1000);
 		}
 	},
@@ -110,6 +113,9 @@ var easyAlert = {
 		}
 		setTimeout(function(){
 			_t.modal('hide');
+			setTimeout(function(){
+				_t.remove();
+			}, 1000);
 		}, parseInt(d['duration'])*1000);
 	},
 	createOne:	function(d){
@@ -138,7 +144,7 @@ var easyAlert = {
 		return str;
 	},
 	buildModal:	function(d){
-		var str = '<div class="modal fade">'+
+		var str = '<div class="modal fade" style="z-index:10000;">'+
           '<div class="modal-dialog"><div class="modal-content" style="background:none;">';
 			str += easyAlert.createOne(d);
         str += '</div></div></div>';
@@ -323,12 +329,22 @@ var datePackage = {
 		if (type == 'range') {
 			$(_config['dateId']).daterangepicker(_config['pluginConfig']);
 		} else{
-			$(_config['dateId']).datepicker({
-		    	format: 'yyyy-mm-dd',
-				autoclose: true,
-				language: "zh-CN"
-					// format: 'MM/DD/YYYY h:mm A'
-		  });
+			// $(_config['dateId']).datepicker({
+		  //   	format: 'yyyy-mm-dd',
+			// 	autoclose: true,
+			// 	language: "zh-CN"
+			// 		// format: 'MM/DD/YYYY h:mm A'
+		  // });
+			lay(_config['dateId']).each(function(inx, element){
+				laydate.render({
+					elem: this,
+					// trigger: 'click',
+					type: 'datetime',
+					change: function(value, date){
+						$(".layui-laydate .laydate-btns-time").click();
+					}
+				});
+			});
 		}
 	},
 	createDefault:	function(){
