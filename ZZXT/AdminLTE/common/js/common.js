@@ -335,6 +335,7 @@ var datePackage = {
 			// 	language: "zh-CN"
 			// 		// format: 'MM/DD/YYYY h:mm A'
 		  // });
+			/* TODO datetime
 			lay(_config['dateId']).each(function(inx, element){
 				laydate.render({
 					elem: this,
@@ -343,6 +344,13 @@ var datePackage = {
 					change: function(value, date){
 						$(".layui-laydate .laydate-btns-time").click();
 					}
+				});
+			});
+			**/
+			lay(_config['dateId']).each(function(inx, element){
+				laydate.render({
+					elem: this,
+					type: 'date',
 				});
 			});
 		}
