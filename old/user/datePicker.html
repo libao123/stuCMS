@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>date</title>
+    <!-- //TODO 注意 time控件需要加入css文件 -->
+    <!-- <link rel="stylesheet" href="./datepicker/datepicker3.css" /> -->
+    <!-- <link rel="stylesheet" href="./daterangepicker/daterangepicker.css" /> -->
+    <!--  -->
+    <!-- Bootstrap 3.3.6 -->
+  	<link rel="stylesheet" href="../common/js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./datepicker/bootstrap-datetimepicker.min.css" />
+
+    <script type="text/javascript" src="./jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../common/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./moment.min.js"></script>
+    <script type="text/javascript" src="./datepicker/bootstrap-datetimepicker.min.js"></script>
+    <!-- <script type="text/javascript" src="./datepicker/locales/bootstrap-datepicker.zh-CN.js"></script> -->
+    <!-- <script type="text/javascript" src="./daterangepicker/daterangepicker.js"></script> -->
+  </head>
+  <body>
+    <div class="" style="width:50%;">
+
+      <input name="START_TIME" id="START_TIME" type="text" class="form-control datep" placeholder="有效起始时间" />
+      <input name="START_TIME" id="END_TIME" type="text" class="form-control datep" placeholder="有效起始时间" />
+    </div>
+    <script type="text/javascript">
+    // Date.prototype.format = function(fmt) {
+    // 　　var o = {
+    // 　　　　"M+" : this.getMonth()+1, //月份
+    // 　　　　"d+" : this.getDate(), //日
+    // 　　　　"h+" : this.getHours(), //小时
+    // 　　　　"m+" : this.getMinutes(), //分
+    // 　　　　"s+" : this.getSeconds(), //秒
+    // 　　　　"q+" : Math.floor((this.getMonth()+3)/3), //季度
+    // 　　　　"S" : this.getMilliseconds() //毫秒
+    // 　　};
+    // 　　if(/(y+)/.test(fmt)) {
+    // 　　　　fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    // 　　}
+    // 　　for(var k in o) {
+    // 　　　　 if(new RegExp("("+ k +")").test(fmt)){
+    // 　　　　　　fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+    // 　　　　}
+    // 　　}
+    //   return fmt;
+    // }
+    //
+    // function getDate(strDate){
+    // 　　if(strDate && strDate!=""){
+    // 　　　　var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/, function (a) { return parseInt(a, 10) - 1; }).match(/\d+/g) + ')');
+    // 　　　　return date;
+    // 　　}
+    //   return undefined;
+    // }
+      $(function(){
+        $("#START_TIME").val("2018-04-10");
+        $(".datep").datetimepicker({ //选择年月日
+　　　　　　format: 'yyyy-mm-dd hh:mm:ss',
+// 　　　　　　language: 'zh-CN',
+// 　　　　　　weekStart: 1,
+// 　　　　　　todayBtn: 1,//显示‘今日’按钮
+// 　　　　　　autoclose: 1,
+// 　　　　　　todayHighlight: 1,
+// 　　　　　　startView: 2,
+// 　　　　　　minView: 2,  //Number, String. 默认值：0, 'hour'，日期时间选择器所能够提供的最精确的时间选择视图。
+//
+// 　　　　　　clearBtn:true,//清除按钮
+//
+// 　　　　　　forceParse: 0
+　　　　});
+        // $(".datep").datetimepicker({
+        //   format: 'yyyy-mm-dd',
+        //   autoclose: true,
+        //   language: "zh-CN"
+        // });
+      });
+    </script>
+  </body>
+</html>
