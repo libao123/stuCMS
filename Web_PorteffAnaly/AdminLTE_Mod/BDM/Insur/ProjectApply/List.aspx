@@ -306,7 +306,8 @@
                 }
                 if (INSUR_TYPE == "A" || INSUR_TYPE == "C") {
                     //弹出遮罩层
-                    var layInx = layer.load(1, { shade: [0.8, '#393D49'] });//遮罩层
+                    // var layInx = layer.load(1, { shade: [0.8, '#393D49'] });//遮罩层
+                    PropLoad.loading();
                     //后台生成数据
                     var postData = { "insur_seq_no": INSUR_SEQ_NO };
                     var url = "List.aspx?optype=auto_data";
@@ -323,7 +324,8 @@
                                     "duration": 2,
                                     "type": "danger"
                                 });
-                                layer.close(layInx);
+                                // layer.close(layInx);
+                                PropLoad.remove();
                                 return;
                             }
                         }
@@ -335,7 +337,8 @@
                         "duration": 3,
                         "type": "info"
                     });
-                    layer.close(layInx);
+                    // layer.close(layInx);
+                    PropLoad.remove();
                     return;
                 }
             });

@@ -1666,10 +1666,14 @@
             //弹出遮罩层
             //$('.maskBg').show();
             //ZENG.msgbox.show("保存中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "保存中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "保存中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "保存中，请稍后...",
+                duration: 6
             });
             //取消不可编辑
             _form_edit.cancel_disableAll();
@@ -1678,7 +1682,8 @@
                 if (msg.length == 0) {
                     //$('.maskBg').hide();
                     //ZENG.msgbox.hide();
-                    layer.close(layInx);
+                    // layer.close(layInx);
+                    PropLoad.remove();
                     SetDisable();
                     easyAlert.timeShow({
                         "content": "保存失败！",
@@ -1707,7 +1712,8 @@
                                 if (msg.length == 0) {
                                     //------大文本 开始---------
                                     $.post(OptimizeUtils.FormatUrl("TxtInfo.aspx?optype=save&seq_no=" + msg_json.SEQ_NO), $("#form_edit").serialize(), function (msg) {
-                                        layer.close(layInx);
+                                        // layer.close(layInx);
+                                        PropLoad.remove();
                                         if (msg.length == 0) {
                                             //全部保存成功
                                             //$('.maskBg').hide();
@@ -1737,7 +1743,8 @@
                                 } else {
                                     //$('.maskBg').hide();
                                     //ZENG.msgbox.hide();
-                                    layer.close(layInx);
+                                    // layer.close(layInx);
+                                    PropLoad.remove();
                                     SetDisable();
                                     easyAlert.timeShow({
                                         "content": msg,
@@ -1752,7 +1759,8 @@
                         else {
                             //$('.maskBg').hide();
                             //ZENG.msgbox.hide();
-                            layer.close(layInx);
+                            // layer.close(layInx);
+                            PropLoad.remove();
                             SetDisable();
                             easyAlert.timeShow({
                                 "content": msg,
@@ -1796,17 +1804,22 @@
                     //弹出遮罩层
                     //$('.maskBg').show();
                     //ZENG.msgbox.show("提交中，请稍后...", 6);
-                    var layInx = layer.load(2, {
-                        content: "提交中，请稍后...",
-                        shade: [0.3, '#000'], //0.1透明度的白色背景
-                        time: 6000
+                    // var layInx = layer.load(2, {
+                    //     content: "提交中，请稍后...",
+                    //     shade: [0.3, '#000'], //0.1透明度的白色背景
+                    //     time: 6000
+                    // });
+                    PropLoad.loading({
+                        title: "提交中，请稍后...",
+                        duration: 6
                     });
                     //提交奖助申请
                     var result_submit = AjaxUtils.getResponseText("Edit.aspx?optype=submit&id=" + $("#hidOid").val());
                     if (result_submit.length > 0) {//提交失败
                         //$('.maskBg').hide();
                         //ZENG.msgbox.hide();
-                        layer.close(layInx);
+                        // layer.close(layInx);
+                        PropLoad.remove();
                         $(".Confirm_Div").modal("hide");
                         easyAlert.timeShow({
                             "content": result_submit,
@@ -1818,7 +1831,8 @@
                     else { //提交成功
                         //$('.maskBg').hide();
                         //ZENG.msgbox.hide();
-                        layer.close(layInx);
+                        // layer.close(layInx);
+                        PropLoad.remove();
                         $(".Confirm_Div").modal("hide");
                         easyAlert.timeShow({
                             "content": "提交成功！",
@@ -1860,13 +1874,18 @@
 
             //$('.maskBg').show();
             //ZENG.msgbox.show("保存中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "保存中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "保存中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "保存中，请稍后...",
+                duration: 6
             });
             $.post(OptimizeUtils.FormatUrl("FamilyMember.aspx?optype=save"), $("#form_familymember").serialize(), function (msg) {
-                layer.close(layInx);
+                // layer.close(layInx);
+                PropLoad.remove();
                 if (msg.length > 0) {
                     //保存成功：关闭界面，刷新列表
                     $("#tableModal_FamilyMember").modal("hide");

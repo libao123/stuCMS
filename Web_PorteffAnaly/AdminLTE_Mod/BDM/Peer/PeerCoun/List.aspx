@@ -67,7 +67,7 @@
     <!-- 可提供申请奖助项目列表选择 结束-->
     <!-- 编辑界面 开始 -->
     <div class="modal fade" id="tableModal">
-        <div class="modal-dialog" style="width: 80%;">
+        <div class="modal-dialog modal-dw90">
             <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal"
             onsubmit="return false;">
             <div class="modal-header">

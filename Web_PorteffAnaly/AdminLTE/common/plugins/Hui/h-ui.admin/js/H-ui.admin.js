@@ -207,8 +207,12 @@ function removeIframeAll(){
 //}
 /*关闭弹出框口*/
 function layer_close(){
-	var index = parent.layer.getFrameIndex(window.name);
-	parent.layer.close(index);
+	try {
+		var index = parent.layer.getFrameIndex(window.name);
+		parent.layer.close(index);
+	} catch (error) {
+		
+	}
 }
 
 /*时间*/

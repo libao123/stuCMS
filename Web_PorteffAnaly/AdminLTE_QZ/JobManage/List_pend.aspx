@@ -50,7 +50,7 @@
     <!-- 列表界面 结束-->
     <!-- 编辑界面 开始-->
     <div class="modal" id="tableModal">
-        <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-dialog modal-dw70">
             <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal form-inline"
                 onsubmit="return false;">
                 <input type="hidden" id="OID" name="OID" />
@@ -549,10 +549,14 @@
         }
 
         function MultiAudit(flag) {
-            var layInx = layer.load(2, {
-                content: "批量审核中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "批量审核中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "批量审核中，请稍后...",
+                duration: 6
             });
             //列表勾选
             var strOids = "";
@@ -573,9 +577,10 @@
             //查询栏
             var urlParam = GetSearchUrlParam();
             var result = AjaxUtils.getResponseText('List_pend.aspx?optype=multiaudit&flag=' + flag + urlParam + "&ids=" + strOids);
-            if (layInx) {
-                layer.closeAll();
-            }
+            // if (layInx) {
+            //     // layer.closeAll();
+            // }
+            PropLoad.remove();
             if (result.length == 0) {
                 easyAlert.timeShow({
                     "content": "批量审批成功！",

@@ -811,17 +811,22 @@
             //弹出遮罩层
             //$('.maskBg').show();
             //ZENG.msgbox.show("提交核对信息中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "提交核对信息中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "提交核对信息中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "提交核对信息中，请稍后...",
+                duration: 6
             });
             //取消不可编辑
             _form_edit.cancel_disableAll();
             $.post(OptimizeUtils.FormatUrl("CheckList.aspx?optype=save"), $("#form_edit").serialize(), function (msg) {
-                if (layInx) {
-                    layer.close(layInx);
-                }
+                // if (layInx) {
+                //     layer.close(layInx);
+                // }
+                PropLoad.remove();
                 if (msg.length == 0) {
                     //$('.maskBg').hide();
                     //ZENG.msgbox.hide();
@@ -888,10 +893,14 @@
             var url = "CheckList.aspx?optype=multi_check" + urlParam;
             //$('.maskBg').show();
             //ZENG.msgbox.show("批量核对中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "批量核对，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "批量核对，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "批量核对，请稍后...",
+                duration: 6
             });
             $.ajax({
                 cache: false,
@@ -901,9 +910,10 @@
                 data: postData,
                 success: function (result) {
                     if (result) {
-                        if (layInx) {
-                            layer.closeAll();
-                        }
+                        // if (layInx) {
+                        //     // layer.closeAll();
+                        // }
+                        PropLoad.remove();
                         //$('.maskBg').hide();
                         //ZENG.msgbox.hide();
 

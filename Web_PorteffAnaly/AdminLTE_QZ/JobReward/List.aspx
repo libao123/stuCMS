@@ -70,7 +70,7 @@
     <!-- 列表界面 结束-->
     <!-- 编辑界面 开始-->
     <div class="modal" id="tableModal">
-        <div class="modal-dialog" style="width: 70%;">
+        <div class="modal-dialog modal-dw80">
             <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal form-inline"
                 onsubmit="return false;">
                 <input type="hidden" id="OID" name="OID" />

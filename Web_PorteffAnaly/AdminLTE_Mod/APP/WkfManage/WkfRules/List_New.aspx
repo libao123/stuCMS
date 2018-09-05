@@ -45,7 +45,7 @@
     <!-- 列表界面 结束-->
     <!-- 编辑界面 开始 -->
     <div class="modal fade" id="tableModal">
-        <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-dialog modal-dw50">
             <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal" onsubmit="return false;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

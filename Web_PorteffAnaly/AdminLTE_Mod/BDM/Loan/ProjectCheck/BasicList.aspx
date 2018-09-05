@@ -495,10 +495,14 @@
             }
             //$('.maskBg').show();
             //ZENG.msgbox.show("保存中，请稍后...", 6);
-            var layInx = layer.load(2, {
-              content: "保存中，请稍后...",
-              shade: [0.3,'#000'], //0.1透明度的白色背景
-              time: 6000
+            // var layInx = layer.load(2, {
+            //   content: "保存中，请稍后...",
+            //   shade: [0.3,'#000'], //0.1透明度的白色背景
+            //   time: 6000
+            // });
+            PropLoad.loading({
+                title: "保存中，请稍后...",
+                duration: 6
             });
             var data = mainList.selectSingle();
             if (data) {
@@ -508,7 +512,8 @@
                         if (msg.length != 0) {
                             //$('.maskBg').hide();
                             //ZENG.msgbox.hide();
-                            layer.close(layInx);
+                            // layer.close(layInx);
+                            PropLoad.remove();
                             easyAlert.timeShow({
                                 "content": msg,
                                 "duration": 2,
@@ -520,7 +525,8 @@
                             //保存成功：关闭界面，刷新列表
                             //$('.maskBg').hide();
                             //ZENG.msgbox.hide();
-                            layer.close(layInx);
+                            // layer.close(layInx);
+                            PropLoad.remove();
                             easyAlert.timeShow({
                                 "content": "发布公告成功，请到系统维护>>公告通知>>公告管理 中进行内容的查阅以及完善！",
                                 "duration": 2,

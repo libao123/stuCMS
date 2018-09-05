@@ -313,10 +313,14 @@
             //弹出遮罩层
             //$('.maskBg').show();
             //ZENG.msgbox.show("保存中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "保存中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "保存中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "保存中，请稍后...",
+                duration: 6
             });
             //取消不可编辑
             _form_edit.cancel_disableAll();
@@ -326,7 +330,8 @@
                     $("#tableModal").modal("hide");
                     //$('.maskBg').hide();
                     //ZENG.msgbox.hide();
-                    layer.close(layInx);
+                    // layer.close(layInx);
+                    PropLoad.remove();
                     easyAlert.timeShow({
                         "content": "提交成功！",
                         "duration": 2,
@@ -338,7 +343,8 @@
                 else {
                     //$('.maskBg').hide();
                     //ZENG.msgbox.hide();
-                    layer.close(layInx);
+                    // layer.close(layInx);
+                    PropLoad.remove();
                     easyAlert.timeShow({
                         "content": "提交失败！",
                         "duration": 2,

@@ -69,7 +69,7 @@
     <!-- 导入界面 结束-->
     <!-- 编辑界面 开始 -->
     <div class="modal" id="editModal">
-        <div class="modal-dialog" style="width: 60%;">
+        <div class="modal-dialog modal-dw70">
             <form action="#" method="post" id="form_edit" name="form_edit" class="modal-content form-horizontal form-inline"
             onsubmit="return false;">
             <div class="modal-header">

@@ -436,10 +436,14 @@
         function MultiAudit(flag) {
             //$('.maskBg').show();
             //ZENG.msgbox.show("批量审核中，请稍后...", 6);
-            var layInx = layer.load(2, {
-              content: "批量审核中，请稍后...",
-              shade: [0.3,'#000'], //0.1透明度的白色背景
-              time: 6000
+            // var layInx = layer.load(2, {
+            //   content: "批量审核中，请稍后...",
+            //   shade: [0.3,'#000'], //0.1透明度的白色背景
+            //   time: 6000
+            // });
+            PropLoad.loading({
+                title: "批量审核中，请稍后...",
+                duration: 6
             });
             //列表勾选
             var strOids = "";
@@ -470,9 +474,10 @@
             //查询栏
             var urlParam = GetSearchUrlParam();
             var result = AjaxUtils.getResponseText('List_Pend.aspx?optype=multiaudit&flag=' + flag + urlParam + "&ids=" + strOids);
-            if (layInx) {
-              layer.closeAll();
-            }
+            // if (layInx) {
+            //   layer.closeAll();
+            // }
+            PropLoad.remove();
             if (result.length == 0) {
                 //$('.maskBg').hide();
                 //ZENG.msgbox.hide();

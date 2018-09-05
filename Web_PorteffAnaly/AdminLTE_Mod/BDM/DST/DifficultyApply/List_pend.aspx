@@ -947,7 +947,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">申请认定家庭经济困难理由</label>
                                 <div class="col-sm-10">
-                                    <textarea name="APPLY_REASON" id="APPLY_REASON" rows="3" maxlength="60" class="form-control"
+                                    <textarea name="APPLY_REASON" id="APPLY_REASON" rows="3" maxlength="120" class="form-control"
                                         placeholder="对本人的家庭情况、成员伤病情况、收入来源情况、突发意外事件、欠债情况等进行详细描述，字数限制在100-300个字"></textarea>
                                 </div>
                             </div>

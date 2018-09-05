@@ -840,7 +840,7 @@
                                 <label class="col-sm-2 control-label">
                                     申请认定家庭经济困难理由</label>
                                 <div class="col-sm-10">
-                                    <textarea name="APPLY_REASON" id="APPLY_REASON" rows="3" maxlength="60" class="form-control"
+                                    <textarea name="APPLY_REASON" id="APPLY_REASON" rows="3" maxlength="120" class="form-control"
                                         placeholder="对本人的家庭情况、成员伤病情况、收入来源情况、突发意外事件、欠债情况等进行详细描述，字数限制在100-300个字"></textarea>
                                 </div>
                             </div>
@@ -927,7 +927,7 @@
     </div>
     <%-- 修改等级界面 开始 --%>
     <div class="modal" id="changeModal">
-        <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-dialog modal-dw50">
             <form method="post" id="change_edit" name="change_edit" onsubmit='return false;' class="modal-content form-horizontal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

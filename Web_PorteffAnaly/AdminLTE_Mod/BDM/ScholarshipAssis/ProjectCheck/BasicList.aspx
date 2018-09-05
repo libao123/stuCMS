@@ -430,10 +430,14 @@
             if (!$('#form_edit').valid())
                 return;
 
-            var layInx = layer.load(2, {
-                content: "提交核对信息中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 60000
+            // var layInx = layer.load(2, {
+            //     content: "提交核对信息中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 60000
+            // });
+            PropLoad.loading({
+                title: "提交核对信息中，请稍后...",
+                duration: 6
             });
 
             $.post(OptimizeUtils.FormatUrl("BasicList.aspx?optype=save"), $("#form_edit").serialize(), function (msg) {
@@ -509,19 +513,24 @@
             }
             //$('.maskBg').show();
             //ZENG.msgbox.show("保存中，请稍后...", 6);
-            var layInx = layer.load(2, {
-                content: "保存中，请稍后...",
-                shade: [0.3, '#000'], //0.1透明度的白色背景
-                time: 6000
+            // var layInx = layer.load(2, {
+            //     content: "保存中，请稍后...",
+            //     shade: [0.3, '#000'], //0.1透明度的白色背景
+            //     time: 6000
+            // });
+            PropLoad.loading({
+                title: "保存中，请稍后...",
+                duration: 6
             });
             var data = mainList.selectSingle();
             if (data) {
                 if (data.OID) {
                     $("#NOTICE_CONTENT").val(editorObj.getData());
                     $.post(OptimizeUtils.FormatUrl("/AdminLTE_Mod/BDM/Notice/List.aspx?optype=save&pro_check_oid=" + data.OID), $("#form_notice").serialize(), function (msg) {
-                        if (layInx) {
-                            layer.close(layInx);
-                        }
+                        // if (layInx) {
+                        //     layer.close(layInx);
+                        // }
+                        PropLoad.remove();
                         if (msg.length != 0) {
                             //$('.maskBg').hide();
                             //ZENG.msgbox.hide();
