@@ -266,6 +266,11 @@ $(function(){
 			var _parent = $(this).parent();
 			_parent.addClass('active').siblings('li').removeClass('active');
 			Hui_admin_tab(this);
+			// 收起左侧
+			var _body = $("body");
+			if (_body.hasClass('sidebar-open')) {
+				_body.removeClass('sidebar-open')
+			}
 		}
 	});
 	

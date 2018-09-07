@@ -49,7 +49,7 @@
 				    },
 				    "head": "checkbox", "id": "checkAll"
 				},
-				{ "data": "DOC_TYPE", "head": "待办事项", "type": "td-keep" }
+				{ "data": "DOC_TYPE", "head": "代办事项", "type": "td-keep" }
                 <%if (user.User_Role.Equals("S")) { %>
                 , { "data": "RET_CHANNEL", "head": "状态", "type": "td-keep" }
                 <% } else { %>
@@ -69,7 +69,7 @@
                 attrs: {
                     tableId: "tablelist", //表格id
                     buttonId: "buttonId", //拓展按钮区域id
-                    tableTitle: "待办事项",
+                    tableTitle: "代办事项",
                     checkAllId: "checkAll", //全选id
                     tableConfig: {
                         'pageLength': 100, //每页显示个数，默认10条

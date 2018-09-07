@@ -285,7 +285,7 @@
                             <div id="alertDiv">
                             </div>
                             <div class="box box-default">
-                                <table id="tablelist" class="table table-bordered table-striped table-hover">
+                                <table id="tablelist" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline collapsed">
                                 </table>
                             </div>
                         </div>

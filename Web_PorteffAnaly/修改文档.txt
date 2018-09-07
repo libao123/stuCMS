@@ -1,0 +1,38 @@
+页面修改前后:
+1、loading 检查引入/common/js/load/loading.js 和 loading.css
+var layInx = layer.load(2, {
+	content: "正在登录中，请稍后...",
+    shade: [0.2,'#fff'], //0.1透明度的白色背景
+    time: 6000
+});
+改为
+PropLoad.loading({
+    title: "正在登录中，请稍后...",
+    duration: 6
+})
+可写参数
+title:                  '', // 标题
+discription: 			'', // 描述
+duration: 				6， // 延时关闭
+
+2、modal-dw10 ~ modal-dw100 检查引入/common/css/common.css
+代替
+<div class="modal-dialog" style="width=60">
+改为
+<div class="modal-dialog modal-dw60">
+
+3、点击左侧导航 检查/common/plugins/Hui/h-ui.admin/H-ui.admin.js
+
+4、检查时间控件包 /common/plugins/laydate/laydate.js
+
+5、login.css修改 登录动效过多，loading出现不好看
+/common/css/login.css
+
+6、个人信息表格强制隐藏
+/AdminLTE_Mod/BDM/PersonalCenter/BasicInfo.aspx
+
+<table id="tablelist" class="table table-bordered table-striped table-hover dataTable no-footer dtr-inline collapsed">
+手机端行数过多，隐藏起来
+
+7、全部页面的style="width=60"类型的，我都改成了modal-dw60
+
